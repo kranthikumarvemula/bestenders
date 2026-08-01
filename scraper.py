@@ -27,13 +27,13 @@ def fetch_live_ap_tenders():
     except Exception as e:
         print(f"Error fetching live data: {e}")
         
-    # బ్యాకప్ డేటా: మొత్తం 55 టెండర్లు వివిధ సమయాలతో ఆటోమేటిక్ గా క్రియేట్ అవుతాయి
+    # బ్యాకప్ డేటా: 55 టెండర్లు పక్కా AM/PM ఫార్మాట్ లో సృష్టించబడతాయి
     backup_list = []
     departments = ["Information Technology", "Civil Roads & Buildings", "Municipal Administration", "Education Department", "Electrical & Power"]
     works = ["LAN Networking & CCTV Camera Setup", "Construction of New Building Wall", "Supply of Office Stationery", "Supply of 50 Desktop Computers", "Street Light Maintenance Works"]
     values = ["₹4,50,000", "₹12,00,000", "₹2,50,000", "₹15,00,000", "₹3,20,000"]
 
-    # లేటెస్ట్ టైమ్స్ పైకి రావడానికి వీలుగా రకరకాల గంటలతో టెండర్ల సృష్టి
+    # ప్రతి టెండర్ కి వేర్వేరు గంటలు మరియు AM/PM సెట్ చేయడం
     for i in range(1, 56):
         idx = (i - 1) % 5
         hour = 1 + (i % 12)
@@ -46,7 +46,7 @@ def fetch_live_ap_tenders():
             "description": f"{works[idx]} (Phase-{i})",
             "value": values[idx],
             "startDate": f"01-08-2026 {hour:02d}:30 {ampm}",
-            "date": f"20-08-2026 05:00 PM"
+            "date": f"25-08-2026 05:00 PM" # ఫ్యూచర్ క్లోజింగ్ డేట్
         })
     return backup_list
 
