@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
 function loadLiveTenders() {
     // ఆటోమేటిక్‌గా క్రియేట్ అయిన tenders.json ఫైల్ నుండి డేటా తెచ్చుకోవడం
     fetch('tenders.json')
-        .then(response => response.json())
+        fetch('tenders.json')
         .then(data => {
             const tableBody = document.querySelector("#tenderTable tbody");
             tableBody.innerHTML = ""; // పాత డేటాను క్లియర్ చేయడం
