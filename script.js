@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function loadLiveTenders() {
     // ఆటోమేటిక్‌గా క్రియేట్ అయిన tenders.json ఫైల్ నుండి డేటా తెచ్చుకోవడం
-    fetch('tenders.json')
+    fetch('tenders.json?v=' + new Date().getTime())
         fetch('tenders.json')
         .then(data => {
             const tableBody = document.querySelector("#tenderTable tbody");
