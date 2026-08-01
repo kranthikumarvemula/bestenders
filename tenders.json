@@ -1,23 +1,30 @@
 [
     {
-        "id": "BT-2026-001",
+        "id": "AP-REG-771",
         "category": "IT Services",
-        "description": "గవర్నమెంట్ స్కూల్స్ డేటా డిజిటలైజేషన్",
-        "value": "₹5,00,000",
-        "date": "15-08-2026"
+        "description": "Collectorate Office LAN Networking & Wifi Setup",
+        "value": "₹4,50,000",
+        "date": "22-08-2026"
     },
     {
-        "id": "BT-2026-002",
+        "id": "AP-CIVIL-302",
+        "category": "Civil Works",
+        "description": "Construction of New Gram Panchayat Building Walls",
+        "value": "₹12,00,000",
+        "date": "28-08-2026"
+    },
+    {
+        "id": "AP-SUPPLY-105",
         "category": "Supply",
-        "description": "కలెక్టరేట్ ఆఫీస్ స్టేషనరీ సప్లై",
-        "value": "₹2,50,000",
-        "date": "20-08-2026"
+        "description": "Supply of 50 Desktop Computers to Govt High School",
+        "value": "₹15,00,000",
+        "date": "18-08-2026"
     },
     {
-        "id": "BT-2026-003",
-        "category": "Civil",
-        "description": "మున్సిపల్ పార్క్ పెయింటింగ్ పనులు",
-        "value": "₹8,00,000",
+        "id": "AP-ELECT-442",
+        "category": "Electrical",
+        "description": "Street Light Maintenance & LED Bulb Replacement",
+        "value": "₹3,20,000",
         "date": "25-08-2026"
     }
 ]
