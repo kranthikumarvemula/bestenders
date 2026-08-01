@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BesTender - Premium Live Tenders Portal</title>
     <link rel="stylesheet" href="style.css">
-    <!-- గూగుల్ ఫాంట్స్ మరియు ఐకాన్స్ -->
     <link href="https://googleapis.com" rel="stylesheet">
     <link rel="stylesheet" href="https://cloudflare.com">
 </head>
@@ -28,9 +27,9 @@
     <section class="premium-hero">
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <span class="badge">Live & Automated Data Feed</span>
-            <h2>గవర్నమెంట్ టెండర్ల సమాచారం ఒక్కచోటే!</h2>
-            <p>AP eProcurement లైవ్ టెండర్లతో మీ స్టార్టప్ బిజినెస్‌ను నెక్స్ట్ లెవెల్‌కి తీసుకెళ్ళండి.</p>
+            <span class="badge">Live AP eProcurement Feed</span>
+            <h2>ప్రభుత్వ టెండర్ల సమాచారం ఒక్కచోటే!</h2>
+            <p>ఆంధ్రప్రదేశ్ ప్రభుత్వ అధికారిక ఈ-ప్రొక్యూర్‌మెంట్ లైవ్ డేటా ఫీడ్.</p>
             <div class="modern-search-box">
                 <i class="fa-solid fa-magnifying-glass search-icon"></i>
                 <input type="text" id="searchInput" onkeyup="searchTenders()" placeholder="డిపార్ట్‌మెంట్, టెండర్ ఐడీ లేదా పని పేరుతో ఇప్పుడే వెతకండి...">
@@ -49,7 +48,6 @@
                 <span class="tender-count" id="totalCount">Loading Tenders...</span>
             </div>
             
-            <!-- మోర్ ఆప్షన్ లేని డైరెక్ట్ టేబుల్ -->
             <div class="premium-table-wrapper">
                 <table id="tenderTable">
                     <thead>
@@ -57,15 +55,16 @@
                             <th>Department Name</th>
                             <th>Tender ID</th>
                             <th>Tender Notice Number</th>
+                            <th>Tender Category</th>
                             <th>Name of Work</th>
-                            <th>Estimated Value</th>
+                            <th>Estimated Contract Value</th>
                             <th>Start Date & Time</th>
-                            <th>Close Date & Time</th>
+                            <th>Closing Date & Time</th>
                             <th style="text-align: center;">Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- డేటా మొత్తం ఇక్కడే డైరెక్ట్‌గా లోడ్ అవుతుంది -->
+                        <!-- లైవ్ డేటా ఇక్కడ లోడ్ అవుతుంది -->
                     </tbody>
                 </table>
             </div>
