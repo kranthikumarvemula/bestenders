@@ -48,18 +48,19 @@
                 <span class="tender-count" id="totalCount">Loading Tenders...</span>
             </div>
             
+            <!-- డైనమిక్ సార్టింగ్ హెడర్స్ తో కూడిన టేబుల్ -->
             <div class="premium-table-wrapper">
                 <table id="tenderTable">
                     <thead>
                         <tr>
-                            <th>Department Name</th>
-                            <th>Tender ID</th>
+                            <th onclick="sortTenderTable('deptName')" style="cursor: pointer;">Department Name <i class="fa-solid fa-sort sort-icon-table"></i></th>
+                            <th onclick="sortTenderTable('id')" style="cursor: pointer;">Tender ID <i class="fa-solid fa-sort sort-icon-table"></i></th>
                             <th>Tender Notice Number</th>
                             <th>Tender Category</th>
                             <th>Name of Work</th>
-                            <th>Estimated Contract Value</th>
-                            <th>Start Date & Time</th>
-                            <th>Closing Date & Time</th>
+                            <th onclick="sortTenderTable('value')" style="cursor: pointer;">Estimated Contract Value <i class="fa-solid fa-sort sort-icon-table"></i></th>
+                            <th onclick="sortTenderTable('startDate')" style="cursor: pointer;">Start Date & Time <i class="fa-solid fa-sort sort-icon-table"></i></th>
+                            <th onclick="sortTenderTable('date')" style="cursor: pointer;">Closing Date & Time <i class="fa-solid fa-sort sort-icon-table"></i></th>
                             <th style="text-align: center;">Action</th>
                         </tr>
                     </thead>
