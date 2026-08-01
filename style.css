@@ -1,110 +1,245 @@
-body {
-    font-family: 'Segoe UI', Arial, sans-serif;
+/* ప్రీమియం గ్లోబల్ స్టైల్స్ */
+* {
     margin: 0;
     padding: 0;
-    background-color: #f8fafc;
-    color: #1e293b;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+body {
+    background-color: #0b0f19; /* డార్క్ అండ్ రీచ్ బ్యాక్‌గ్రౌండ్ */
+    color: #f1f5f9;
 }
 .container {
-    width: 92%;
-    max-width: 1400px;
+    width: 95%;
+    max-width: 1440px;
     margin: auto;
-    overflow: hidden;
 }
 
-/* హెడర్ & టూ కలర్ బ్రాండింగ్ */
+/* మోడ్రన్ హెడర్ */
 header {
-    background: #0f172a;
-    color: #fff;
+    background: rgba(15, 23, 42, 0.8);
+    backdrop-filter: blur(12px);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     padding: 15px 0;
-    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
 }
-.logo {
-    float: left;
-    margin: 0;
-    font-size: 30px;
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 95%;
+    max-width: 1440px;
+    margin: auto;
+}
+.brand-logo {
+    font-size: 28px;
     font-weight: 800;
+    color: #ffffff;
+    letter-spacing: -0.5px;
 }
-.logo { color: #ffffff; } /* Bes పార్ట్ తెల్లగా */
-.logo span { color: #3b82f6; } /* Tender పార్ట్ బ్లూ కలర్‌లో */
-
-header nav {
-    float: right;
-    margin-top: 8px;
+.brand-logo span {
+    color: #3b82f6; /* నియాన్ బ్లూ */
 }
-header nav a {
-    color: #cbd5e1;
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+.nav-item {
+    color: #94a3b8;
     text-decoration: none;
-    margin-left: 25px;
-    font-weight: 600;
+    font-weight: 500;
+    font-size: 15px;
+    transition: all 0.3s;
 }
-header nav a:hover, header nav a.active { color: #3b82f6; }
+.nav-item:hover, .nav-item.active {
+    color: #3b82f6;
+}
+.signup-btn {
+    background: #3b82f6;
+    color: white !important;
+    padding: 8px 20px;
+    border-radius: 20px;
+}
+.signup-btn:hover {
+    background: #2563eb;
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.4);
+}
 
-/* హీరో సెక్షన్ */
-.hero-section {
-    background: linear-gradient(135deg, #1e3a8a, #0f172a);
-    color: white;
-    padding: 50px 0;
+/* ఎక్సలెంట్ హీరో సెక్షన్ */
+.premium-hero {
+    position: relative;
+    background: url('https://unsplash.com') no-repeat center center/cover;
+    padding: 80px 0;
     text-align: center;
 }
-.hero-section h2 { font-size: 30px; margin-bottom: 10px; }
-.hero-section p { color: #93c5fd; margin-bottom: 25px; font-size: 16px; }
-.search-box input {
-    width: 50%;
-    padding: 12px 20px;
-    font-size: 15px;
-    border: none;
-    border-radius: 4px 0 0 4px;
-    outline: none;
+.hero-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(11, 15, 25, 0.98));
+    z-index: 1;
 }
-.search-box button {
-    padding: 12px 25px;
-    font-size: 15px;
-    background: #3b82f6;
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    margin: auto;
+}
+.badge {
+    background: rgba(59, 130, 246, 0.1);
+    color: #3b82f6;
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+.hero-content h2 {
+    font-size: 38px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    letter-spacing: -0.5px;
+    color: #fff;
+}
+.hero-content p {
+    color: #94a3b8;
+    font-size: 16px;
+    margin-bottom: 35px;
+}
+.modern-search-box {
+    position: relative;
+    max-width: 650px;
+    margin: auto;
+}
+.search-icon {
+    position: absolute;
+    left: 20px; top: 50%;
+    transform: translateY(-50%);
+    color: #64748b;
+    font-size: 18px;
+}
+.modern-search-box input {
+    width: 100%;
+    padding: 16px 20px 16px 55px;
+    font-size: 16px;
+    background: #1e293b;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 30px;
     color: white;
-    border: none;
-    cursor: pointer;
-    font-weight: bold;
-    border-radius: 0 4px 4px 0;
+    outline: none;
+    transition: all 0.3s;
+}
+.modern-search-box input:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.2);
 }
 
-/* రెస్పాన్సివ్ టేబుల్ */
-.tender-listings { padding: 40px 0; }
-.section-title { font-size: 22px; border-left: 5px solid #1e3a8a; padding-left: 10px; margin-bottom: 20px; }
-.table-responsive { width: 100%; overflow-x: auto; background: #fff; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); }
-table { width: 100%; border-collapse: collapse; min-width: 1000px; }
-th, td { padding: 14px; text-align: left; font-size: 14px; }
-th { background-color: #1e3a8a; color: white; font-weight: 600; white-space: nowrap; }
-td { border-bottom: 1px solid #e2e8f0; }
-tr:hover { background-color: #f1f5f9; }
+/* మెయిన్ లిస్టింగ్స్ & టేబుల్ */
+.main-content-area {
+    padding: 50px 0;
+}
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+.title-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.live-dot {
+    width: 10px; height: 10px;
+    background-color: #10b981;
+    border-radius: 50%;
+    animation: blink 1.5s infinite;
+}
+.title-left h3 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #fff;
+}
+.tender-count {
+    background: #1e293b;
+    padding: 6px 14px;
+    border-radius: 15px;
+    font-size: 14px;
+    color: #94a3b8;
+    font-weight: 500;
+}
+.premium-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    background: #111827;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 1100px;
+}
+th {
+    background-color: #1f2937;
+    color: #94a3b8;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    padding: 16px 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    text-align: left;
+}
+td {
+    padding: 18px 20px;
+    font-size: 14px;
+    color: #cbd5e1;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.02);
+}
+tr:hover td {
+    background-color: rgba(255,255,255,0.02);
+    color: #fff;
+}
 
-/* వ్యూ ఐకాన్ బటన్ */
-.btn-view {
+/* గ్రీన్ కలర్ ప్రొఫెషనల్ EYE VIEW బటన్ */
+.btn-view-premium {
     background: #10b981;
     color: white;
-    padding: 6px 12px;
+    padding: 8px 16px;
     text-decoration: none;
-    border-radius: 4px;
+    border-radius: 6px;
+    font-size: 13px;
     font-weight: 600;
     display: inline-flex;
     align-items: center;
-    gap: 6px;
-}
-.btn-view:hover { background: #059669; }
-
-/* మోర్ టెండర్స్ బటన్ */
-.more-btn-container { text-align: center; margin-top: 30px; }
-#loadMoreBtn {
-    background: #0f172a;
-    color: white;
+    gap: 8px;
+    transition: all 0.3s;
     border: none;
-    padding: 12px 30px;
-    font-size: 15px;
-    font-weight: 600;
-    border-radius: 25px;
     cursor: pointer;
-    transition: 0.3s;
 }
-#loadMoreBtn:hover { background: #1e3a8a; }
+.btn-view-premium:hover {
+    background: #059669;
+    box-shadow: 0 0 12px rgba(16, 185, 129, 0.4);
+    transform: translateY(-1px);
+}
 
-footer { background: #0f172a; color: #94a3b8; text-align: center; padding: 20px 0; margin-top: 50px; }
+@keyframes blink {
+    0% { opacity: 0.2; }
+    50% { opacity: 1; }
+    100% { opacity: 0.2; }
+}
+
+footer {
+    background: #090d16;
+    padding: 30px 0;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    color: #64748b;
+    font-size: 14px;
+}
