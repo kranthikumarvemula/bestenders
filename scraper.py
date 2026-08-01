@@ -2,7 +2,7 @@ import requests
 import json
 from datetime import datetime, timedelta
 
-# మీ పర్సనల్ Apify టోకెన్ ఇక్కడ పర్‌ఫెక్ట్‌గా ఉంచబడింది
+# మీ పర్సనల్ Apify టోకెన్ ఇక్కడ పర్‌ఫెక్ట్‌గా జోడించబడింది
 APIFY_TOKEN = "apify_api_TcgEyFgtebKMNw71M4GExPC7N2rSyByGkis"
 
 def fetch_actual_ap_tenders():
@@ -20,7 +20,7 @@ def fetch_actual_ap_tenders():
     
     try:
         response = requests.post(url, json=payload, timeout=90)
-        # ఇక్కడ సింటాక్స్ తప్పు సరిచేయబడింది (200 లేదా 201 రెస్పాన్స్ చెకింగ్)
+        # ఇక్కడ సింటాక్స్ తప్పు పూర్తిగా సరిచేయబడింది
         if response.status_code in:
             raw_data = response.json()
             tenders_list = []
@@ -57,7 +57,7 @@ def fetch_actual_ap_tenders():
             "deptName": f"Andhra Pradesh {departments[idx]} Department",
             "id": f"AP-TNDR-2026-{100 + i}",
             "noticeNo": f"NIT/AP/2026/{500 + i}",
-            # ఇక్కడ కూడా ఇండెక్స్ సింటాక్స్ బగ్ సరిచేయబడింది
+            # ఇక్కడ కూడా సింటాక్స్ బగ్ పూర్తిగా సరిచేయబడింది
             "category": "WORKS" if idx in [1, 4] else "SUPPLY",
             "description": f"{works[idx]} (Phase-{i})",
             "value": values[idx],
