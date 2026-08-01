@@ -3,468 +3,550 @@
         "deptName": "Andhra Pradesh Information Technology",
         "id": "AP-TNDR-2026-101",
         "noticeNo": "NIT/AP/2026/501",
-        "description": "LAN Networking & CCTV Camera Installation in Collectorate (Phase-1)",
+        "category": "SUPPLY",
+        "description": "LAN Networking & CCTV Camera Setup (Phase-1)",
         "value": "₹4,50,000",
-        "startDate": "01-08-2026 10:00 AM",
-        "date": "11-08-2026 05:00 PM"
+        "startDate": "01-08-2026 02:30 PM",
+        "date": "20-08-2026 05:00 PM"
     },
     {
         "deptName": "Andhra Pradesh Civil Roads & Buildings",
         "id": "AP-TNDR-2026-102",
         "noticeNo": "NIT/AP/2026/502",
-        "description": "Construction of Gram Panchayat Building Compound Wall (Phase-2)",
+        "category": "WORKS",
+        "description": "Construction of New Building Wall (Phase-2)",
         "value": "₹12,00,000",
-        "startDate": "01-08-2026 10:00 AM",
-        "date": "12-08-2026 05:00 PM"
+        "startDate": "01-08-2026 03:30 AM",
+        "date": "20-08-2026 05:00 PM"
     },
     {
         "deptName": "Andhra Pradesh Municipal Administration",
         "id": "AP-TNDR-2026-103",
         "noticeNo": "NIT/AP/2026/503",
-        "description": "Supply of Stationery and Office Equipment to Municipal Offices (Phase-3)",
+        "category": "SUPPLY",
+        "description": "Supply of Office Stationery (Phase-3)",
         "value": "₹2,50,000",
-        "startDate": "01-08-2026 10:00 AM",
-        "date": "13-08-2026 05:00 PM"
+        "startDate": "01-08-2026 04:30 PM",
+        "date": "20-08-2026 05:00 PM"
     },
     {
         "deptName": "Andhra Pradesh Education Department",
         "id": "AP-TNDR-2026-104",
         "noticeNo": "NIT/AP/2026/504",
-        "description": "Supply of 50 Desktop Computers and UPS to Govt High Schools (Phase-4)",
+        "category": "SUPPLY",
+        "description": "Supply of 50 Desktop Computers (Phase-4)",
         "value": "₹15,00,000",
-        "startDate": "01-08-2026 10:00 AM",
-        "date": "14-08-2026 05:00 PM"
+        "startDate": "01-08-2026 05:30 AM",
+        "date": "20-08-2026 05:00 PM"
     },
     {
         "deptName": "Andhra Pradesh Electrical & Power",
         "id": "AP-TNDR-2026-105",
         "noticeNo": "NIT/AP/2026/505",
-        "description": "Street Light Maintenance and LED Bulb Replacement Works (Phase-5)",
+        "category": "WORKS",
+        "description": "Street Light Maintenance Works (Phase-5)",
         "value": "₹3,20,000",
-        "startDate": "01-08-2026 10:00 AM",
-        "date": "15-08-2026 05:00 PM"
+        "startDate": "01-08-2026 06:30 PM",
+        "date": "20-08-2026 05:00 PM"
     },
     {
         "deptName": "Andhra Pradesh Information Technology",
         "id": "AP-TNDR-2026-106",
         "noticeNo": "NIT/AP/2026/506",
-        "description": "LAN Networking & CCTV Camera Installation in Collectorate (Phase-6)",
+        "category": "SUPPLY",
+        "description": "LAN Networking & CCTV Camera Setup (Phase-6)",
         "value": "₹4,50,000",
-        "startDate": "01-08-2026 10:00 AM",
-        "date": "16-08-2026 05:00 PM"
+        "startDate": "01-08-2026 07:30 AM",
+        "date": "20-08-2026 05:00 PM"
     },
     {
         "deptName": "Andhra Pradesh Civil Roads & Buildings",
         "id": "AP-TNDR-2026-107",
         "noticeNo": "NIT/AP/2026/507",
-        "description": "Construction of Gram Panchayat Building Compound Wall (Phase-7)",
+        "category": "WORKS",
+        "description": "Construction of New Building Wall (Phase-7)",
         "value": "₹12,00,000",
-        "startDate": "01-08-2026 10:00 AM",
-        "date": "17-08-2026 05:00 PM"
+        "startDate": "01-08-2026 08:30 PM",
+        "date": "20-08-2026 05:00 PM"
     },
     {
         "deptName": "Andhra Pradesh Municipal Administration",
         "id": "AP-TNDR-2026-108",
         "noticeNo": "NIT/AP/2026/508",
-        "description": "Supply of Stationery and Office Equipment to Municipal Offices (Phase-8)",
+        "category": "SUPPLY",
+        "description": "Supply of Office Stationery (Phase-8)",
         "value": "₹2,50,000",
-        "startDate": "01-08-2026 10:00 AM",
-        "date": "18-08-2026 05:00 PM"
+        "startDate": "01-08-2026 09:30 AM",
+        "date": "20-08-2026 05:00 PM"
     },
     {
         "deptName": "Andhra Pradesh Education Department",
         "id": "AP-TNDR-2026-109",
         "noticeNo": "NIT/AP/2026/509",
-        "description": "Supply of 50 Desktop Computers and UPS to Govt High Schools (Phase-9)",
+        "category": "SUPPLY",
+        "description": "Supply of 50 Desktop Computers (Phase-9)",
         "value": "₹15,00,000",
-        "startDate": "01-08-2026 10:00 AM",
-        "date": "19-08-2026 05:00 PM"
+        "startDate": "01-08-2026 10:30 PM",
+        "date": "20-08-2026 05:00 PM"
     },
     {
         "deptName": "Andhra Pradesh Electrical & Power",
         "id": "AP-TNDR-2026-110",
         "noticeNo": "NIT/AP/2026/510",
-        "description": "Street Light Maintenance and LED Bulb Replacement Works (Phase-10)",
+        "category": "WORKS",
+        "description": "Street Light Maintenance Works (Phase-10)",
         "value": "₹3,20,000",
-        "startDate": "01-08-2026 10:00 AM",
+        "startDate": "01-08-2026 11:30 AM",
         "date": "20-08-2026 05:00 PM"
     },
     {
         "deptName": "Andhra Pradesh Information Technology",
         "id": "AP-TNDR-2026-111",
         "noticeNo": "NIT/AP/2026/511",
-        "description": "LAN Networking & CCTV Camera Installation in Collectorate (Phase-11)",
+        "category": "SUPPLY",
+        "description": "LAN Networking & CCTV Camera Setup (Phase-11)",
         "value": "₹4,50,000",
-        "startDate": "01-08-2026 10:00 AM",
-        "date": "21-08-2026 05:00 PM"
+        "startDate": "01-08-2026 12:30 PM",
+        "date": "20-08-2026 05:00 PM"
     },
     {
         "deptName": "Andhra Pradesh Civil Roads & Buildings",
         "id": "AP-TNDR-2026-112",
         "noticeNo": "NIT/AP/2026/512",
-        "description": "Construction of Gram Panchayat Building Compound Wall (Phase-12)",
+        "category": "WORKS",
+        "description": "Construction of New Building Wall (Phase-12)",
         "value": "₹12,00,000",
-        "startDate": "01-08-2026 10:00 AM",
-        "date": "22-08-2026 05:00 PM"
+        "startDate": "01-08-2026 01:30 AM",
+        "date": "20-08-2026 05:00 PM"
     },
     {
         "deptName": "Andhra Pradesh Municipal Administration",
         "id": "AP-TNDR-2026-113",
         "noticeNo": "NIT/AP/2026/513",
-        "description": "Supply of Stationery and Office Equipment to Municipal Offices (Phase-13)",
+        "category": "SUPPLY",
+        "description": "Supply of Office Stationery (Phase-13)",
         "value": "₹2,50,000",
-        "startDate": "01-08-2026 10:00 AM",
-        "date": "23-08-2026 05:00 PM"
+        "startDate": "01-08-2026 02:30 PM",
+        "date": "20-08-2026 05:00 PM"
     },
     {
         "deptName": "Andhra Pradesh Education Department",
         "id": "AP-TNDR-2026-114",
         "noticeNo": "NIT/AP/2026/514",
-        "description": "Supply of 50 Desktop Computers and UPS to Govt High Schools (Phase-14)",
+        "category": "SUPPLY",
+        "description": "Supply of 50 Desktop Computers (Phase-14)",
         "value": "₹15,00,000",
-        "startDate": "01-08-2026 10:00 AM",
-        "date": "24-08-2026 05:00 PM"
+        "startDate": "01-08-2026 03:30 AM",
+        "date": "20-08-2026 05:00 PM"
     },
     {
         "deptName": "Andhra Pradesh Electrical & Power",
         "id": "AP-TNDR-2026-115",
         "noticeNo": "NIT/AP/2026/515",
-        "description": "Street Light Maintenance and LED Bulb Replacement Works (Phase-15)",
+        "category": "WORKS",
+        "description": "Street Light Maintenance Works (Phase-15)",
         "value": "₹3,20,000",
-        "startDate": "01-08-2026 10:00 AM",
-        "date": "10-08-2026 05:00 PM"
+        "startDate": "01-08-2026 04:30 PM",
+        "date": "20-08-2026 05:00 PM"
     },
     {
         "deptName": "Andhra Pradesh Information Technology",
         "id": "AP-TNDR-2026-116",
         "noticeNo": "NIT/AP/2026/516",
-        "description": "LAN Networking & CCTV Camera Installation in Collectorate (Phase-16)",
+        "category": "SUPPLY",
+        "description": "LAN Networking & CCTV Camera Setup (Phase-16)",
         "value": "₹4,50,000",
-        "startDate": "01-08-2026 10:00 AM",
-        "date": "11-08-2026 05:00 PM"
+        "startDate": "01-08-2026 05:30 AM",
+        "date": "20-08-2026 05:00 PM"
     },
     {
         "deptName": "Andhra Pradesh Civil Roads & Buildings",
         "id": "AP-TNDR-2026-117",
         "noticeNo": "NIT/AP/2026/517",
-        "description": "Construction of Gram Panchayat Building Compound Wall (Phase-17)",
+        "category": "WORKS",
+        "description": "Construction of New Building Wall (Phase-17)",
         "value": "₹12,00,000",
-        "startDate": "01-08-2026 10:00 AM",
-        "date": "12-08-2026 05:00 PM"
+        "startDate": "01-08-2026 06:30 PM",
+        "date": "20-08-2026 05:00 PM"
     },
     {
         "deptName": "Andhra Pradesh Municipal Administration",
         "id": "AP-TNDR-2026-118",
         "noticeNo": "NIT/AP/2026/518",
-        "description": "Supply of Stationery and Office Equipment to Municipal Offices (Phase-18)",
+        "category": "SUPPLY",
+        "description": "Supply of Office Stationery (Phase-18)",
         "value": "₹2,50,000",
-        "startDate": "01-08-2026 10:00 AM",
-        "date": "13-08-2026 05:00 PM"
+        "startDate": "01-08-2026 07:30 AM",
+        "date": "20-08-2026 05:00 PM"
     },
     {
         "deptName": "Andhra Pradesh Education Department",
         "id": "AP-TNDR-2026-119",
         "noticeNo": "NIT/AP/2026/519",
-        "description": "Supply of 50 Desktop Computers and UPS to Govt High Schools (Phase-19)",
+        "category": "SUPPLY",
+        "description": "Supply of 50 Desktop Computers (Phase-19)",
         "value": "₹15,00,000",
-        "startDate": "01-08-2026 10:00 AM",
-        "date": "14-08-2026 05:00 PM"
+        "startDate": "01-08-2026 08:30 PM",
+        "date": "20-08-2026 05:00 PM"
     },
     {
         "deptName": "Andhra Pradesh Electrical & Power",
         "id": "AP-TNDR-2026-120",
         "noticeNo": "NIT/AP/2026/520",
-        "description": "Street Light Maintenance and LED Bulb Replacement Works (Phase-20)",
+        "category": "WORKS",
+        "description": "Street Light Maintenance Works (Phase-20)",
         "value": "₹3,20,000",
-        "startDate": "01-08-2026 10:00 AM",
-        "date": "15-08-2026 05:00 PM"
+        "startDate": "01-08-2026 09:30 AM",
+        "date": "20-08-2026 05:00 PM"
     },
     {
         "deptName": "Andhra Pradesh Information Technology",
         "id": "AP-TNDR-2026-121",
         "noticeNo": "NIT/AP/2026/521",
-        "description": "LAN Networking & CCTV Camera Installation in Collectorate (Phase-21)",
+        "category": "SUPPLY",
+        "description": "LAN Networking & CCTV Camera Setup (Phase-21)",
         "value": "₹4,50,000",
-        "startDate": "01-08-2026 10:00 AM",
-        "date": "16-08-2026 05:00 PM"
+        "startDate": "01-08-2026 10:30 PM",
+        "date": "20-08-2026 05:00 PM"
     },
     {
         "deptName": "Andhra Pradesh Civil Roads & Buildings",
         "id": "AP-TNDR-2026-122",
         "noticeNo": "NIT/AP/2026/522",
-        "description": "Construction of Gram Panchayat Building Compound Wall (Phase-22)",
+        "category": "WORKS",
+        "description": "Construction of New Building Wall (Phase-22)",
         "value": "₹12,00,000",
-        "startDate": "01-08-2026 10:00 AM",
-        "date": "17-08-2026 05:00 PM"
+        "startDate": "01-08-2026 11:30 AM",
+        "date": "20-08-2026 05:00 PM"
     },
     {
         "deptName": "Andhra Pradesh Municipal Administration",
         "id": "AP-TNDR-2026-123",
         "noticeNo": "NIT/AP/2026/523",
-        "description": "Supply of Stationery and Office Equipment to Municipal Offices (Phase-23)",
+        "category": "SUPPLY",
+        "description": "Supply of Office Stationery (Phase-23)",
         "value": "₹2,50,000",
-        "startDate": "01-08-2026 10:00 AM",
-        "date": "18-08-2026 05:00 PM"
+        "startDate": "01-08-2026 12:30 PM",
+        "date": "20-08-2026 05:00 PM"
     },
     {
         "deptName": "Andhra Pradesh Education Department",
         "id": "AP-TNDR-2026-124",
         "noticeNo": "NIT/AP/2026/524",
-        "description": "Supply of 50 Desktop Computers and UPS to Govt High Schools (Phase-24)",
+        "category": "SUPPLY",
+        "description": "Supply of 50 Desktop Computers (Phase-24)",
         "value": "₹15,00,000",
-        "startDate": "01-08-2026 10:00 AM",
-        "date": "19-08-2026 05:00 PM"
+        "startDate": "01-08-2026 01:30 AM",
+        "date": "20-08-2026 05:00 PM"
     },
     {
         "deptName": "Andhra Pradesh Electrical & Power",
         "id": "AP-TNDR-2026-125",
         "noticeNo": "NIT/AP/2026/525",
-        "description": "Street Light Maintenance and LED Bulb Replacement Works (Phase-25)",
+        "category": "WORKS",
+        "description": "Street Light Maintenance Works (Phase-25)",
         "value": "₹3,20,000",
-        "startDate": "01-08-2026 10:00 AM",
+        "startDate": "01-08-2026 02:30 PM",
         "date": "20-08-2026 05:00 PM"
     },
     {
         "deptName": "Andhra Pradesh Information Technology",
         "id": "AP-TNDR-2026-126",
         "noticeNo": "NIT/AP/2026/526",
-        "description": "LAN Networking & CCTV Camera Installation in Collectorate (Phase-26)",
+        "category": "SUPPLY",
+        "description": "LAN Networking & CCTV Camera Setup (Phase-26)",
         "value": "₹4,50,000",
-        "startDate": "01-08-2026 10:00 AM",
-        "date": "21-08-2026 05:00 PM"
+        "startDate": "01-08-2026 03:30 AM",
+        "date": "20-08-2026 05:00 PM"
     },
     {
         "deptName": "Andhra Pradesh Civil Roads & Buildings",
         "id": "AP-TNDR-2026-127",
         "noticeNo": "NIT/AP/2026/527",
-        "description": "Construction of Gram Panchayat Building Compound Wall (Phase-27)",
+        "category": "WORKS",
+        "description": "Construction of New Building Wall (Phase-27)",
         "value": "₹12,00,000",
-        "startDate": "01-08-2026 10:00 AM",
-        "date": "22-08-2026 05:00 PM"
+        "startDate": "01-08-2026 04:30 PM",
+        "date": "20-08-2026 05:00 PM"
     },
     {
         "deptName": "Andhra Pradesh Municipal Administration",
         "id": "AP-TNDR-2026-128",
         "noticeNo": "NIT/AP/2026/528",
-        "description": "Supply of Stationery and Office Equipment to Municipal Offices (Phase-28)",
+        "category": "SUPPLY",
+        "description": "Supply of Office Stationery (Phase-28)",
         "value": "₹2,50,000",
-        "startDate": "01-08-2026 10:00 AM",
-        "date": "23-08-2026 05:00 PM"
+        "startDate": "01-08-2026 05:30 AM",
+        "date": "20-08-2026 05:00 PM"
     },
     {
         "deptName": "Andhra Pradesh Education Department",
         "id": "AP-TNDR-2026-129",
         "noticeNo": "NIT/AP/2026/529",
-        "description": "Supply of 50 Desktop Computers and UPS to Govt High Schools (Phase-29)",
+        "category": "SUPPLY",
+        "description": "Supply of 50 Desktop Computers (Phase-29)",
         "value": "₹15,00,000",
-        "startDate": "01-08-2026 10:00 AM",
-        "date": "24-08-2026 05:00 PM"
+        "startDate": "01-08-2026 06:30 PM",
+        "date": "20-08-2026 05:00 PM"
     },
     {
         "deptName": "Andhra Pradesh Electrical & Power",
         "id": "AP-TNDR-2026-130",
         "noticeNo": "NIT/AP/2026/530",
-        "description": "Street Light Maintenance and LED Bulb Replacement Works (Phase-30)",
+        "category": "WORKS",
+        "description": "Street Light Maintenance Works (Phase-30)",
         "value": "₹3,20,000",
-        "startDate": "01-08-2026 10:00 AM",
-        "date": "10-08-2026 05:00 PM"
+        "startDate": "01-08-2026 07:30 AM",
+        "date": "20-08-2026 05:00 PM"
     },
     {
         "deptName": "Andhra Pradesh Information Technology",
         "id": "AP-TNDR-2026-131",
         "noticeNo": "NIT/AP/2026/531",
-        "description": "LAN Networking & CCTV Camera Installation in Collectorate (Phase-31)",
+        "category": "SUPPLY",
+        "description": "LAN Networking & CCTV Camera Setup (Phase-31)",
         "value": "₹4,50,000",
-        "startDate": "01-08-2026 10:00 AM",
-        "date": "11-08-2026 05:00 PM"
+        "startDate": "01-08-2026 08:30 PM",
+        "date": "20-08-2026 05:00 PM"
     },
     {
         "deptName": "Andhra Pradesh Civil Roads & Buildings",
         "id": "AP-TNDR-2026-132",
         "noticeNo": "NIT/AP/2026/532",
-        "description": "Construction of Gram Panchayat Building Compound Wall (Phase-32)",
+        "category": "WORKS",
+        "description": "Construction of New Building Wall (Phase-32)",
         "value": "₹12,00,000",
-        "startDate": "01-08-2026 10:00 AM",
-        "date": "12-08-2026 05:00 PM"
+        "startDate": "01-08-2026 09:30 AM",
+        "date": "20-08-2026 05:00 PM"
     },
     {
         "deptName": "Andhra Pradesh Municipal Administration",
         "id": "AP-TNDR-2026-133",
         "noticeNo": "NIT/AP/2026/533",
-        "description": "Supply of Stationery and Office Equipment to Municipal Offices (Phase-33)",
+        "category": "SUPPLY",
+        "description": "Supply of Office Stationery (Phase-33)",
         "value": "₹2,50,000",
-        "startDate": "01-08-2026 10:00 AM",
-        "date": "13-08-2026 05:00 PM"
+        "startDate": "01-08-2026 10:30 PM",
+        "date": "20-08-2026 05:00 PM"
     },
     {
         "deptName": "Andhra Pradesh Education Department",
         "id": "AP-TNDR-2026-134",
         "noticeNo": "NIT/AP/2026/534",
-        "description": "Supply of 50 Desktop Computers and UPS to Govt High Schools (Phase-34)",
+        "category": "SUPPLY",
+        "description": "Supply of 50 Desktop Computers (Phase-34)",
         "value": "₹15,00,000",
-        "startDate": "01-08-2026 10:00 AM",
-        "date": "14-08-2026 05:00 PM"
+        "startDate": "01-08-2026 11:30 AM",
+        "date": "20-08-2026 05:00 PM"
     },
     {
         "deptName": "Andhra Pradesh Electrical & Power",
         "id": "AP-TNDR-2026-135",
         "noticeNo": "NIT/AP/2026/535",
-        "description": "Street Light Maintenance and LED Bulb Replacement Works (Phase-35)",
+        "category": "WORKS",
+        "description": "Street Light Maintenance Works (Phase-35)",
         "value": "₹3,20,000",
-        "startDate": "01-08-2026 10:00 AM",
-        "date": "15-08-2026 05:00 PM"
+        "startDate": "01-08-2026 12:30 PM",
+        "date": "20-08-2026 05:00 PM"
     },
     {
         "deptName": "Andhra Pradesh Information Technology",
         "id": "AP-TNDR-2026-136",
         "noticeNo": "NIT/AP/2026/536",
-        "description": "LAN Networking & CCTV Camera Installation in Collectorate (Phase-36)",
+        "category": "SUPPLY",
+        "description": "LAN Networking & CCTV Camera Setup (Phase-36)",
         "value": "₹4,50,000",
-        "startDate": "01-08-2026 10:00 AM",
-        "date": "16-08-2026 05:00 PM"
+        "startDate": "01-08-2026 01:30 AM",
+        "date": "20-08-2026 05:00 PM"
     },
     {
         "deptName": "Andhra Pradesh Civil Roads & Buildings",
         "id": "AP-TNDR-2026-137",
         "noticeNo": "NIT/AP/2026/537",
-        "description": "Construction of Gram Panchayat Building Compound Wall (Phase-37)",
+        "category": "WORKS",
+        "description": "Construction of New Building Wall (Phase-37)",
         "value": "₹12,00,000",
-        "startDate": "01-08-2026 10:00 AM",
-        "date": "17-08-2026 05:00 PM"
+        "startDate": "01-08-2026 02:30 PM",
+        "date": "20-08-2026 05:00 PM"
     },
     {
         "deptName": "Andhra Pradesh Municipal Administration",
         "id": "AP-TNDR-2026-138",
         "noticeNo": "NIT/AP/2026/538",
-        "description": "Supply of Stationery and Office Equipment to Municipal Offices (Phase-38)",
+        "category": "SUPPLY",
+        "description": "Supply of Office Stationery (Phase-38)",
         "value": "₹2,50,000",
-        "startDate": "01-08-2026 10:00 AM",
-        "date": "18-08-2026 05:00 PM"
+        "startDate": "01-08-2026 03:30 AM",
+        "date": "20-08-2026 05:00 PM"
     },
     {
         "deptName": "Andhra Pradesh Education Department",
         "id": "AP-TNDR-2026-139",
         "noticeNo": "NIT/AP/2026/539",
-        "description": "Supply of 50 Desktop Computers and UPS to Govt High Schools (Phase-39)",
+        "category": "SUPPLY",
+        "description": "Supply of 50 Desktop Computers (Phase-39)",
         "value": "₹15,00,000",
-        "startDate": "01-08-2026 10:00 AM",
-        "date": "19-08-2026 05:00 PM"
+        "startDate": "01-08-2026 04:30 PM",
+        "date": "20-08-2026 05:00 PM"
     },
     {
         "deptName": "Andhra Pradesh Electrical & Power",
         "id": "AP-TNDR-2026-140",
         "noticeNo": "NIT/AP/2026/540",
-        "description": "Street Light Maintenance and LED Bulb Replacement Works (Phase-40)",
+        "category": "WORKS",
+        "description": "Street Light Maintenance Works (Phase-40)",
         "value": "₹3,20,000",
-        "startDate": "01-08-2026 10:00 AM",
+        "startDate": "01-08-2026 05:30 AM",
         "date": "20-08-2026 05:00 PM"
     },
     {
         "deptName": "Andhra Pradesh Information Technology",
         "id": "AP-TNDR-2026-141",
         "noticeNo": "NIT/AP/2026/541",
-        "description": "LAN Networking & CCTV Camera Installation in Collectorate (Phase-41)",
+        "category": "SUPPLY",
+        "description": "LAN Networking & CCTV Camera Setup (Phase-41)",
         "value": "₹4,50,000",
-        "startDate": "01-08-2026 10:00 AM",
-        "date": "21-08-2026 05:00 PM"
+        "startDate": "01-08-2026 06:30 PM",
+        "date": "20-08-2026 05:00 PM"
     },
     {
         "deptName": "Andhra Pradesh Civil Roads & Buildings",
         "id": "AP-TNDR-2026-142",
         "noticeNo": "NIT/AP/2026/542",
-        "description": "Construction of Gram Panchayat Building Compound Wall (Phase-42)",
+        "category": "WORKS",
+        "description": "Construction of New Building Wall (Phase-42)",
         "value": "₹12,00,000",
-        "startDate": "01-08-2026 10:00 AM",
-        "date": "22-08-2026 05:00 PM"
+        "startDate": "01-08-2026 07:30 AM",
+        "date": "20-08-2026 05:00 PM"
     },
     {
         "deptName": "Andhra Pradesh Municipal Administration",
         "id": "AP-TNDR-2026-143",
         "noticeNo": "NIT/AP/2026/543",
-        "description": "Supply of Stationery and Office Equipment to Municipal Offices (Phase-43)",
+        "category": "SUPPLY",
+        "description": "Supply of Office Stationery (Phase-43)",
         "value": "₹2,50,000",
-        "startDate": "01-08-2026 10:00 AM",
-        "date": "23-08-2026 05:00 PM"
+        "startDate": "01-08-2026 08:30 PM",
+        "date": "20-08-2026 05:00 PM"
     },
     {
         "deptName": "Andhra Pradesh Education Department",
         "id": "AP-TNDR-2026-144",
         "noticeNo": "NIT/AP/2026/544",
-        "description": "Supply of 50 Desktop Computers and UPS to Govt High Schools (Phase-44)",
+        "category": "SUPPLY",
+        "description": "Supply of 50 Desktop Computers (Phase-44)",
         "value": "₹15,00,000",
-        "startDate": "01-08-2026 10:00 AM",
-        "date": "24-08-2026 05:00 PM"
+        "startDate": "01-08-2026 09:30 AM",
+        "date": "20-08-2026 05:00 PM"
     },
     {
         "deptName": "Andhra Pradesh Electrical & Power",
         "id": "AP-TNDR-2026-145",
         "noticeNo": "NIT/AP/2026/545",
-        "description": "Street Light Maintenance and LED Bulb Replacement Works (Phase-45)",
+        "category": "WORKS",
+        "description": "Street Light Maintenance Works (Phase-45)",
         "value": "₹3,20,000",
-        "startDate": "01-08-2026 10:00 AM",
-        "date": "10-08-2026 05:00 PM"
+        "startDate": "01-08-2026 10:30 PM",
+        "date": "20-08-2026 05:00 PM"
     },
     {
         "deptName": "Andhra Pradesh Information Technology",
         "id": "AP-TNDR-2026-146",
         "noticeNo": "NIT/AP/2026/546",
-        "description": "LAN Networking & CCTV Camera Installation in Collectorate (Phase-46)",
+        "category": "SUPPLY",
+        "description": "LAN Networking & CCTV Camera Setup (Phase-46)",
         "value": "₹4,50,000",
-        "startDate": "01-08-2026 10:00 AM",
-        "date": "11-08-2026 05:00 PM"
+        "startDate": "01-08-2026 11:30 AM",
+        "date": "20-08-2026 05:00 PM"
     },
     {
         "deptName": "Andhra Pradesh Civil Roads & Buildings",
         "id": "AP-TNDR-2026-147",
         "noticeNo": "NIT/AP/2026/547",
-        "description": "Construction of Gram Panchayat Building Compound Wall (Phase-47)",
+        "category": "WORKS",
+        "description": "Construction of New Building Wall (Phase-47)",
         "value": "₹12,00,000",
-        "startDate": "01-08-2026 10:00 AM",
-        "date": "12-08-2026 05:00 PM"
+        "startDate": "01-08-2026 12:30 PM",
+        "date": "20-08-2026 05:00 PM"
     },
     {
         "deptName": "Andhra Pradesh Municipal Administration",
         "id": "AP-TNDR-2026-148",
         "noticeNo": "NIT/AP/2026/548",
-        "description": "Supply of Stationery and Office Equipment to Municipal Offices (Phase-48)",
+        "category": "SUPPLY",
+        "description": "Supply of Office Stationery (Phase-48)",
         "value": "₹2,50,000",
-        "startDate": "01-08-2026 10:00 AM",
-        "date": "13-08-2026 05:00 PM"
+        "startDate": "01-08-2026 01:30 AM",
+        "date": "20-08-2026 05:00 PM"
     },
     {
         "deptName": "Andhra Pradesh Education Department",
         "id": "AP-TNDR-2026-149",
         "noticeNo": "NIT/AP/2026/549",
-        "description": "Supply of 50 Desktop Computers and UPS to Govt High Schools (Phase-49)",
+        "category": "SUPPLY",
+        "description": "Supply of 50 Desktop Computers (Phase-49)",
         "value": "₹15,00,000",
-        "startDate": "01-08-2026 10:00 AM",
-        "date": "14-08-2026 05:00 PM"
+        "startDate": "01-08-2026 02:30 PM",
+        "date": "20-08-2026 05:00 PM"
     },
     {
         "deptName": "Andhra Pradesh Electrical & Power",
         "id": "AP-TNDR-2026-150",
         "noticeNo": "NIT/AP/2026/550",
-        "description": "Street Light Maintenance and LED Bulb Replacement Works (Phase-50)",
+        "category": "WORKS",
+        "description": "Street Light Maintenance Works (Phase-50)",
         "value": "₹3,20,000",
-        "startDate": "01-08-2026 10:00 AM",
-        "date": "15-08-2026 05:00 PM"
+        "startDate": "01-08-2026 03:30 AM",
+        "date": "20-08-2026 05:00 PM"
     },
     {
         "deptName": "Andhra Pradesh Information Technology",
         "id": "AP-TNDR-2026-151",
         "noticeNo": "NIT/AP/2026/551",
-        "description": "LAN Networking & CCTV Camera Installation in Collectorate (Phase-51)",
+        "category": "SUPPLY",
+        "description": "LAN Networking & CCTV Camera Setup (Phase-51)",
         "value": "₹4,50,000",
-        "startDate": "01-08-2026 10:00 AM",
-        "date": "16-08-2026 05:00 PM"
+        "startDate": "01-08-2026 04:30 PM",
+        "date": "20-08-2026 05:00 PM"
     },
     {
         "deptName": "Andhra Pradesh Civil Roads & Buildings",
         "id": "AP-TNDR-2026-152",
         "noticeNo": "NIT/AP/2026/552",
-        "description": "Construction of Gram Panchayat Building Compound Wall (Phase-52)",
+        "category": "WORKS",
+        "description": "Construction of New Building Wall (Phase-52)",
         "value": "₹12,00,000",
-        "startDate": "01-08-2026 10:00 AM",
-        "date": "17-08-2026 05:00 PM"
+        "startDate": "01-08-2026 05:30 AM",
+        "date": "20-08-2026 05:00 PM"
+    },
+    {
+        "deptName": "Andhra Pradesh Municipal Administration",
+        "id": "AP-TNDR-2026-153",
+        "noticeNo": "NIT/AP/2026/553",
+        "category": "SUPPLY",
+        "description": "Supply of Office Stationery (Phase-53)",
+        "value": "₹2,50,000",
+        "startDate": "01-08-2026 06:30 PM",
+        "date": "20-08-2026 05:00 PM"
+    },
+    {
+        "deptName": "Andhra Pradesh Education Department",
+        "id": "AP-TNDR-2026-154",
+        "noticeNo": "NIT/AP/2026/554",
+        "category": "SUPPLY",
+        "description": "Supply of 50 Desktop Computers (Phase-54)",
+        "value": "₹15,00,000",
+        "startDate": "01-08-2026 07:30 AM",
+        "date": "20-08-2026 05:00 PM"
+    },
+    {
+        "deptName": "Andhra Pradesh Electrical & Power",
+        "id": "AP-TNDR-2026-155",
+        "noticeNo": "NIT/AP/2026/555",
+        "category": "WORKS",
+        "description": "Street Light Maintenance Works (Phase-55)",
+        "value": "₹3,20,000",
+        "startDate": "01-08-2026 08:30 PM",
+        "date": "20-08-2026 05:00 PM"
     }
 ]
