@@ -6,20 +6,28 @@ function loadLiveTenders() {
     fetch('tenders.json?v=' + new Date().getTime())
         .then(response => response.json())
         .then(data => {
+            // 1. ప్రస్తుత ఇండియన్ టైమ్ (IST) ని కరెక్ట్‌గా లెక్కించడం
             const now = new Date();
             
-            // 1. క్లోజింగ్ టైమ్ దాటని యాక్టివ్ టెండర్లను ఫిల్టర్ చేయడం
-            let activeTenders = data.filter(tender => {
+            // ఈరోజు ఉదయం కచ్చితంగా 11:00 AM IST సమయాన్ని సెట్ చేయడం
+            const today11AM_IST = new Date();
+            today11AM_IST.setHours(11, 0, 0, 0); 
+
+            // 2. గడువు ముగియని మరియు ఈరోజు ఉదయం 11:00 AM IST తర్వాత స్టార్ట్ అయిన టెండర్లను మాత్రమే ఉంచడం
+            let filteredTenders = data.filter(tender => {
                 try {
                     const closingDateTime = parseCustomDate(tender.date);
-                    return closingDateTime > now; 
+                    const startDateTime = parseCustomDate(tender.startDate);
+                    
+                    // కండిషన్: క్లోజింగ్ టైమ్ ఇంకా అయిపోకూడదు మరియు స్టార్ట్ టైమ్ 11:00 AM IST దాటి ఉండాలి
+                    return closingDateTime > now && startDateTime >= today11AM_IST; 
                 } catch (e) {
-                    return true; 
+                    return false; 
                 }
             });
 
-            // 2. సరికొత్తగా అప్‌డేట్ అయిన డేటా మొదట కనిపించేలా సార్ట్ చేయడం (Latest First)
-            activeTenders.sort((a, b) => {
+            // 3. సరికొత్తగా అప్‌డేట్ అయిన డేటా మొదట కనిపించేలా సార్ట్ చేయడం (Latest First)
+            filteredTenders.sort((a, b) => {
                 try {
                     return parseCustomDate(b.startDate) - parseCustomDate(a.startDate);
                 } catch (e) {
@@ -27,7 +35,7 @@ function loadLiveTenders() {
                 }
             });
 
-            renderPremiumTable(activeTenders);
+            renderPremiumTable(filteredTenders);
         })
         .catch(error => {
             console.error("డేటా లోడ్ చేయడంలో ఇబ్బంది వచ్చింది:", error);
@@ -55,7 +63,12 @@ function renderPremiumTable(tenders) {
     const tableBody = document.querySelector("#tenderTable tbody");
     tableBody.innerHTML = ""; 
 
-    document.getElementById("totalCount").innerText = `${tenders.length} Active Tenders Available`;
+    document.getElementById("totalCount").innerText = `${tenders.length} Active Tenders (Since 11:00 AM IST)`;
+
+    if (tenders.length === 0) {
+        tableBody.innerHTML = `<tr><td colspan="9" style="text-align:center; color:#94a3b8; padding:30px; font-weight:500;">ఉదయం 11:00 AM IST తర్వాత కొత్త టెండర్లు ఏవీ అప్‌డేట్ కాలేదు. ప్రభుత్వ సైట్ అప్‌డేట్ కోసం వేచి చూస్తోంది...</td></tr>`;
+        return;
+    }
 
     tenders.forEach(tender => {
         const row = `<tr>
