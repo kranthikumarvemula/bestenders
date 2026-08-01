@@ -8,33 +8,26 @@ function loadLiveTenders() {
         .then(data => {
             const now = new Date();
             
-            // ఈరోజు ఉదయం కచ్చితంగా 11:00 AM IST సమయాన్ని సెట్ చేయడం
-            const today11AM = new Date();
-            today11AM.setHours(11, 0, 0, 0); 
-
-            // 1. క్లోజింగ్ టైమ్ దాటని మరియు 11:00 AM తర్వాత వచ్చిన టెండర్లను మాత్రమే ఉంచడం
-            let filteredTenders = data.filter(tender => {
+            // 1. క్లోజింగ్ టైమ్ దాటని (యాక్టివ్) టెండర్లను మాత్రమే ఉంచడం
+            let activeTenders = data.filter(tender => {
                 try {
-                    const startDateTime = parse24HourDate(tender.startDate);
-                    const closingDateTime = parse24HourDate(tender.date);
-                    
-                    // కండిషన్: క్లోజింగ్ టైమ్ ఇంకా అవ్వకూడదు మరియు స్టార్ట్ టైమ్ 11:00 AM లేదా ఆ తర్వాత ఉండాలి
-                    return closingDateTime > now && startDateTime >= today11AM; 
+                    const closingDateTime = parseGovDate(tender.date);
+                    return closingDateTime > now; 
                 } catch (e) {
-                    return false; 
+                    return true; 
                 }
             });
 
-            // 2. సరికొత్తగా అప్‌డేట్ అయిన డేటా మొదట కనిపించేలా సార్ట్ చేయడం (Latest First)
-            filteredTenders.sort((a, b) => {
+            // 2. సరికొత్త టెండర్లు అందరికంటే పైన కనిపించేలా సార్ట్ చేయడం (Latest First)
+            activeTenders.sort((a, b) => {
                 try {
-                    return parse24HourDate(b.startDate) - parse24HourDate(a.startDate);
+                    return parseGovDate(b.startDate) - parseGovDate(a.startDate);
                 } catch (e) {
                     return 0;
                 }
             });
 
-            renderPremiumTable(filteredTenders);
+            renderPremiumTable(activeTenders);
         })
         .catch(error => {
             console.error("డేటా లోడ్ చేయడంలో ఇబ్బంది వచ్చింది:", error);
@@ -42,43 +35,31 @@ function loadLiveTenders() {
         });
 }
 
-// 24-గంటల ఫార్మాట్ స్ట్రింగ్‌ను (DD-MM-YYYY-HH-MM) పక్కాగా జావాస్క్రిప్ట్ డేట్ ఆబ్జెక్ట్‌గా మార్చే ఫంక్షన్
-function parse24HourDate(dateStr) {
-    const parts = dateStr.split('-');
+// ప్రభుత్వ సైట్ డేట్ ఫార్మాట్‌ను (DD-MM-YYYY hh:mm AM/PM) పక్కాగా రీడ్ చేసే ఫంక్షన్
+function parseGovDate(dateStr) {
+    if (!dateStr) return new Date();
+    const parts = dateStr.split(/[- :]/);
     const day = parseInt(parts[0], 10);
     const month = parseInt(parts[1], 10) - 1;
     const year = parseInt(parts[2], 10);
-    const hour = parseInt(parts[3], 10);
+    let hour = parseInt(parts[3], 10);
     const min = parseInt(parts[4], 10);
-    return new Date(year, month, day, hour, min);
-}
+    const ampm = dateStr.slice(-2).toUpperCase();
 
-// యూజర్‌కు స్క్రీన్‌పై అర్థమయ్యేలా 12-గంటల (AM/PM) రూపంలోకి మార్చే ఫంక్షన్
-function formatTo12Hour(dateStr) {
-    try {
-        const parts = dateStr.split('-');
-        const day = parts[0];
-        const month = parts[1];
-        const year = parts[2];
-        let hour = parseInt(parts[3], 10);
-        const min = parts[4];
-        const ampm = hour >= 12 ? 'PM' : 'AM';
-        hour = hour % 12;
-        hour = hour ? hour : 12; // 0 ని 12 గా మార్చడం
-        return `${day}-${month}-${year} ${hour}:${min} ${ampm}`;
-    } catch(e) {
-        return dateStr;
-    }
+    if (ampm === "PM" && hour < 12) hour += 12;
+    if (ampm === "AM" && hour === 12) hour = 0;
+
+    return new Date(year, month, day, hour, min);
 }
 
 function renderPremiumTable(tenders) {
     const tableBody = document.querySelector("#tenderTable tbody");
     tableBody.innerHTML = ""; 
 
-    document.getElementById("totalCount").innerText = `${tenders.length} Active Tenders (Since 11:00 AM)`;
+    document.getElementById("totalCount").innerText = `${tenders.length} Active Tenders Available`;
 
     if (tenders.length === 0) {
-        tableBody.innerHTML = `<tr><td colspan="9" style="text-align:center; color:#94a3b8; padding:30px; font-weight:500;">ఉదయం 11:00 AM తర్వాత కొత్త టెండర్లు ఏవీ అప్‌డేట్ కాలేదు. ప్రభుత్వ సైట్ అప్‌డేట్ కోసం వేచి చూస్తోంది...</td></tr>`;
+        tableBody.innerHTML = `<tr><td colspan="9" style="text-align:center; color:#94a3b8; padding:30px; font-weight:500;">లైవ్ టెండర్లు ఏవీ అందుబాటులో లేవు. ప్రభుత్వ సైట్ అప్‌డేట్ కోసం వేచి చూస్తోంది...</td></tr>`;
         return;
     }
 
@@ -90,8 +71,8 @@ function renderPremiumTable(tenders) {
             <td><span style="background:rgba(59, 130, 246, 0.1); color:#3b82f6; padding:3px 8px; border-radius:12px; font-size:11px; font-weight:600;">${tender.category}</span></td>
             <td style="max-width: 320px; font-weight:500; line-height:1.4;">${tender.description}</td>
             <td style="color:#10b981; font-weight:600;">${tender.value}</td>
-            <td style="font-size:12px; color:#94a3b8;">${formatTo12Hour(tender.startDate)}</td>
-            <td style="font-size:12px; color:#f43f5e; font-weight:500;">${formatTo12Hour(tender.date)}</td>
+            <td style="font-size:12px; color:#94a3b8;">${tender.startDate}</td>
+            <td style="font-size:12px; color:#f43f5e; font-weight:500;">${tender.date}</td>
             <td style="text-align:center;"><a href="https://tender.apeprocurement.gov.in/" target="_blank" class="btn-view-premium"><i class="fa-solid fa-eye"></i> View</a></td>
         </tr>`;
         tableBody.innerHTML += row;
