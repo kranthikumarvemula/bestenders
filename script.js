@@ -4,9 +4,9 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function loadLiveTenders() {
-    // ఆటోమేటిక్‌గా క్రియేట్ అయిన tenders.json ఫైల్ నుండి డేటా తెచ్చుకోవడం
+    // బ్రౌజర్ క్యాచీ సమస్య లేకుండా ప్రతిసారీ సరికొత్త డేటాను తెచ్చుకోవడం
     fetch('tenders.json?v=' + new Date().getTime())
-        fetch('tenders.json')
+        .then(response => response.json())
         .then(data => {
             const tableBody = document.querySelector("#tenderTable tbody");
             tableBody.innerHTML = ""; // పాత డేటాను క్లియర్ చేయడం
@@ -18,9 +18,11 @@ function loadLiveTenders() {
                     <td>${tender.description}</td>
                     <td>${tender.value}</td>
                     <td>${tender.date}</td>
-                    <td><a href="https://apeprocurement.gov.in" target="_blank" class="btn-download">అప్లై</a></td>
+                    <td><a href="https://tender.apeprocurement.gov.in/" target="_blank" class="btn-download">అప్లై</a></td>
                 </tr>`;
-                tableBody.innerHTML += row;
+                
+                // ఇక్కడ += కరెక్ట్‌గా సెట్ చేయబడింది
+                tableBody.innerHTML += row; 
             });
         })
         .catch(error => {
@@ -28,7 +30,7 @@ function loadLiveTenders() {
         });
 }
 
-// సెర్చ్ ఫంక్షన్ (పాతదే)
+// సెర్చ్ ఫంక్షన్
 function searchTenders() {
     let input = document.getElementById("searchInput").value.toLowerCase();
     let table = document.getElementById("tenderTable");
@@ -37,7 +39,7 @@ function searchTenders() {
     for (let i = 1; i < tr.length; i++) {
         let td = tr[i].getElementsByTagName("td");
         if (td.length > 0) {
-            let textValue = td[1].textContent + " " + td[2].textContent;
+            let textValue = td[0].textContent + " " + td[1].textContent + " " + td[2].textContent;
             if (textValue.toLowerCase().indexOf(input) > -1) {
                 tr[i].style.display = "";
             } else {
