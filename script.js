@@ -3,7 +3,7 @@ let sortDirections = {
     deptName: true,
     id: true,
     value: true,
-    startDate: false, // లేటెస్ట్ ఫస్ట్ ఉండాలి కాబట్టి మొదట ఫాల్స్
+    startDate: false, 
     date: true
 };
 
@@ -17,7 +17,7 @@ function loadLiveTenders() {
         .then(data => {
             const now = new Date();
             
-            // 1. క్లోజింగ్ టైమ్ దాటని (యాక్టివ్) టెండర్లను మాత్రమే ఉంచడం
+            // 1. క్లోజింగ్ టైమ్ దాటని యాక్టివ్ టెండర్లను మాత్రమే ఉంచడం
             let activeTenders = data.filter(tender => {
                 try {
                     const closingDateTime = parseGovDate(tender.date);
@@ -27,7 +27,7 @@ function loadLiveTenders() {
                 }
             });
 
-            // 2. డిఫాల్ట్‌గా సరికొత్త టెండర్లు అందరికంటే పైన కనిపించేలా సార్ట్ చేయడం (Latest First)
+            // 2. డిఫాల్ట్‌గా సరికొత్త టెండర్లు పైన కనిపించేలా సార్ట్ చేయడం (Latest First)
             activeTenders.sort((a, b) => {
                 try {
                     return parseGovDate(b.startDate) - parseGovDate(a.startDate);
@@ -47,23 +47,19 @@ function loadLiveTenders() {
 
 // హెడర్ క్లిక్ ఫిల్టర్ లాజిక్ (Ascending / Descending / Latest / Oldest)
 function sortTenderTable(columnKey) {
-    // సార్టింగ్ డైరెక్షన్ మార్చడం (True ఉంటే False, False ఉంటే True)
     sortDirections[columnKey] = !sortDirections[columnKey];
     const isAscending = sortDirections[columnKey];
 
     currentTendersData.sort((a, b) => {
         if (columnKey === 'startDate' || columnKey === 'date') {
-            // డేట్ ఫిల్టరింగ్ (Latest vs Oldest)
             const dateA = parseGovDate(a[columnKey]);
             const dateB = parseGovDate(b[columnKey]);
             return isAscending ? dateA - dateB : dateB - dateA;
         } else if (columnKey === 'value') {
-            // బడ్జెట్ విలువ ఫిల్టరింగ్ (చిన్న నుండి పెద్ద లేదా పెద్ద నుండి చిన్న)
             const valA = parseFloat(a[columnKey].replace(/[^0-9]/g, '')) || 0;
             const valB = parseFloat(b[columnKey].replace(/[^0-9]/g, '')) || 0;
             return isAscending ? valA - valB : valB - valA;
         } else {
-            // టెక్స్ట్ మరియు ఐడీ ఫిల్టరింగ్ (A to Z లేదా Z to A)
             const strA = a[columnKey].toLowerCase();
             const strB = b[columnKey].toLowerCase();
             if (strA < strB) return isAscending ? -1 : 1;
@@ -75,20 +71,25 @@ function sortTenderTable(columnKey) {
     renderPremiumTable(currentTendersData);
 }
 
+// AM/PM తో కూడిన డేట్ స్ట్రింగ్‌ను రీడ్ చేసే పక్కా ఫంక్షన్
 function parseGovDate(dateStr) {
     if (!dateStr) return new Date();
-    const parts = dateStr.split(/[- :]/);
-    const day = parseInt(parts, 10);
-    const month = parseInt(parts, 10) - 1;
-    const year = parseInt(parts, 10);
-    let hour = parseInt(parts, 10);
-    const min = parseInt(parts, 10);
-    const ampm = dateStr.slice(-2).toUpperCase();
+    try {
+        const parts = dateStr.split(/[- :]/);
+        const day = parseInt(parts[0], 10);
+        const month = parseInt(parts[1], 10) - 1;
+        const year = parseInt(parts[2], 10);
+        let hour = parseInt(parts[3], 10);
+        const min = parseInt(parts[4], 10);
+        const ampm = dateStr.slice(-2).toUpperCase();
 
-    if (ampm === "PM" && hour < 12) hour += 12;
-    if (ampm === "AM" && hour === 12) hour = 0;
+        if (ampm === "PM" && hour < 12) hour += 12;
+        if (ampm === "AM" && hour === 12) hour = 0;
 
-    return new Date(year, month, day, hour, min);
+        return new Date(year, month, day, hour, min);
+    } catch (e) {
+        return new Date();
+    }
 }
 
 function renderPremiumTable(tenders) {
