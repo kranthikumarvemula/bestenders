@@ -3,16 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>bestender - బెస్ట్ టెండర్ల సమాచార కేంద్రం</title>
+    <title>BesTender - లైవ్ టెండర్ల సమాచారం</title>
     <link rel="stylesheet" href="style.css">
+    <!-- ఐకాన్స్ కోసం FontAwesome లింక్ -->
+    <link rel="stylesheet" href="https://cloudflare.com">
 </head>
 <body>
 
     <!-- హెడర్ సెక్షన్ -->
     <header>
         <div class="container">
-            <!-- మీ లోగో లేదా బ్రాండ్ నేమ్ -->
-            <h1 class="logo">bes<span>tender</span></h1>
+            <!-- టూ-కలర్ బ్రాండింగ్: BesTender -->
+            <h1 class="logo">Bes<span>Tender</span></h1>
             <nav>
                 <a href="#" class="active">హోమ్</a>
                 <a href="#">లైవ్ టెండర్లు</a>
@@ -22,14 +24,14 @@
         </div>
     </header>
 
-    <!-- మెయిన్ బ్యానర్ & సెర్చ్ -->
+    <!-- మెయిన్ బ్యానర్ -->
     <section class="hero-section">
         <div class="container">
-            <h2>గవర్నమెంట్ & ప్రైవేట్ టెండర్ల సమాచారం ఒక్కచోటే!</h2>
-            <p>మీ స్టార్టప్ బిజినెస్‌ను తదుపరి స్థాయికి తీసుకెళ్లడానికి ఉత్తమమైన టెండర్లను వెతకండి.</p>
+            <h2>ప్రభుత్వ & ప్రైవేట్ టెండర్ల సమాచారం ఒక్కచోటే!</h2>
+            <p>ఈరోజు అప్‌డేట్ అయిన లైవ్ టెండర్లను ఇక్కడే చూసుకోండి.</p>
             <div class="search-box">
-                <input type="text" id="searchInput" placeholder="ఉదాహరణ: IT Services, Civil, Supply...">
-                <button onclick="searchTenders()">వెతుకు</button>
+                <input type="text" id="searchInput" placeholder="డిపార్ట్‌మెంట్ లేదా పని పేరుతో వెతకండి...">
+                <button onclick="searchTenders()">Search</button>
             </div>
         </div>
     </section>
@@ -37,51 +39,36 @@
     <!-- టెండర్ల జాబితా -->
     <section class="tender-listings">
         <div class="container">
-            <h3>తాజా లైవ్ టెండర్లు (Latest Tenders)</h3>
-            <table id="tenderTable">
-                <thead>
-                    <tr>
-                        <th>టెండర్ ఐడీ</th>
-                        <th>విభాగం (Category)</th>
-                        <th>వివరణ (Description)</th>
-                        <th>విలువ (Value)</th>
-                        <th>చివరి తేదీ</th>
-                        <th>యాక్షన్</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>BT-2026-001</td>
-                        <td>IT Services</td>
-                        <td>గవర్నమెంట్ స్కూల్స్ డేటా డిజిటలైజేషన్</td>
-                        <td>₹5,00,000</td>
-                        <td>15-08-2026</td>
-                        <td><a href="#" class="btn-download">డౌన్‌లోడ్</a></td>
-                    </tr>
-                    <tr>
-                        <td>BT-2026-002</td>
-                        <td>Supply</td>
-                        <td>కలెక్టరేట్ ఆఫీస్ స్టేషనరీ సప్లై</td>
-                        <td>₹2,50,000</td>
-                        <td>20-08-2026</td>
-                        <td><a href="#" class="btn-download">డౌన్‌లోడ్</a></td>
-                    </tr>
-                    <tr>
-                        <td>BT-2026-003</td>
-                        <td>Civil</td>
-                        <td>మున్సిపల్ పార్క్ పెయింటింగ్ పనులు</td>
-                        <td>₹8,00,000</td>
-                        <td>25-08-2026</td>
-                        <td><a href="#" class="btn-download">డౌన్‌లోడ్</a></td>
-                    </tr>
-                </tbody>
-            </table>
+            <h3 class="section-title">Today's Live Tenders</h3>
+            <div class="table-responsive">
+                <table id="tenderTable">
+                    <thead>
+                        <tr>
+                            <th>Department Name</th>
+                            <th>Tender ID</th>
+                            <th>Tender Notice Number</th>
+                            <th>Name of Work</th>
+                            <th>Estimated Contract Value</th>
+                            <th>Start Date & Time</th>
+                            <th>Close Date & Time</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- డేటా జావాస్క్రిప్ట్ ద్వారా ఆటోమేటిక్‌గా ఇక్కడ లోడ్ అవుతుంది -->
+                    </tbody>
+                </table>
+            </div>
+            
+            <!-- మోర్ ఆప్షన్ బటన్ -->
+            <div class="more-btn-container">
+                <button id="loadMoreBtn" onclick="toggleTenders()">More Tenders <i class="fa-solid fa-chevron-down"></i></button>
+            </div>
         </div>
     </section>
 
-    <!-- ఫుటర్ -->
     <footer>
-        <p>&copy; 2026 <strong>bestender</strong>. All Rights Reserved.</p>
+        <p>&copy; 2026 <strong>BesTender</strong>. All Rights Reserved.</p>
     </footer>
 
     <script src="script.js"></script>
