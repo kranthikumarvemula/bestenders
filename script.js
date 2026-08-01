@@ -1,3 +1,12 @@
+let currentTendersData = [];
+let sortDirections = {
+    deptName: true,
+    id: true,
+    value: true,
+    startDate: false, // లేటెస్ట్ ఫస్ట్ ఉండాలి కాబట్టి మొదట ఫాల్స్
+    date: true
+};
+
 document.addEventListener("DOMContentLoaded", () => {
     loadLiveTenders();
 });
@@ -18,7 +27,7 @@ function loadLiveTenders() {
                 }
             });
 
-            // 2. సరికొత్త టెండర్లు అందరికంటే పైన కనిపించేలా సార్ట్ చేయడం (Latest First)
+            // 2. డిఫాల్ట్‌గా సరికొత్త టెండర్లు అందరికంటే పైన కనిపించేలా సార్ట్ చేయడం (Latest First)
             activeTenders.sort((a, b) => {
                 try {
                     return parseGovDate(b.startDate) - parseGovDate(a.startDate);
@@ -27,7 +36,8 @@ function loadLiveTenders() {
                 }
             });
 
-            renderPremiumTable(activeTenders);
+            currentTendersData = activeTenders;
+            renderPremiumTable(currentTendersData);
         })
         .catch(error => {
             console.error("డేటా లోడ్ చేయడంలో ఇబ్బంది వచ్చింది:", error);
@@ -35,15 +45,44 @@ function loadLiveTenders() {
         });
 }
 
-// ప్రభుత్వ సైట్ డేట్ ఫార్మాట్‌ను (DD-MM-YYYY hh:mm AM/PM) పక్కాగా రీడ్ చేసే ఫంక్షన్
+// హెడర్ క్లిక్ ఫిల్టర్ లాజిక్ (Ascending / Descending / Latest / Oldest)
+function sortTenderTable(columnKey) {
+    // సార్టింగ్ డైరెక్షన్ మార్చడం (True ఉంటే False, False ఉంటే True)
+    sortDirections[columnKey] = !sortDirections[columnKey];
+    const isAscending = sortDirections[columnKey];
+
+    currentTendersData.sort((a, b) => {
+        if (columnKey === 'startDate' || columnKey === 'date') {
+            // డేట్ ఫిల్టరింగ్ (Latest vs Oldest)
+            const dateA = parseGovDate(a[columnKey]);
+            const dateB = parseGovDate(b[columnKey]);
+            return isAscending ? dateA - dateB : dateB - dateA;
+        } else if (columnKey === 'value') {
+            // బడ్జెట్ విలువ ఫిల్టరింగ్ (చిన్న నుండి పెద్ద లేదా పెద్ద నుండి చిన్న)
+            const valA = parseFloat(a[columnKey].replace(/[^0-9]/g, '')) || 0;
+            const valB = parseFloat(b[columnKey].replace(/[^0-9]/g, '')) || 0;
+            return isAscending ? valA - valB : valB - valA;
+        } else {
+            // టెక్స్ట్ మరియు ఐడీ ఫిల్టరింగ్ (A to Z లేదా Z to A)
+            const strA = a[columnKey].toLowerCase();
+            const strB = b[columnKey].toLowerCase();
+            if (strA < strB) return isAscending ? -1 : 1;
+            if (strA > strB) return isAscending ? 1 : -1;
+            return 0;
+        }
+    });
+
+    renderPremiumTable(currentTendersData);
+}
+
 function parseGovDate(dateStr) {
     if (!dateStr) return new Date();
     const parts = dateStr.split(/[- :]/);
-    const day = parseInt(parts[0], 10);
-    const month = parseInt(parts[1], 10) - 1;
-    const year = parseInt(parts[2], 10);
-    let hour = parseInt(parts[3], 10);
-    const min = parseInt(parts[4], 10);
+    const day = parseInt(parts, 10);
+    const month = parseInt(parts, 10) - 1;
+    const year = parseInt(parts, 10);
+    let hour = parseInt(parts, 10);
+    const min = parseInt(parts, 10);
     const ampm = dateStr.slice(-2).toUpperCase();
 
     if (ampm === "PM" && hour < 12) hour += 12;
@@ -73,7 +112,7 @@ function renderPremiumTable(tenders) {
             <td style="color:#10b981; font-weight:600;">${tender.value}</td>
             <td style="font-size:12px; color:#94a3b8;">${tender.startDate}</td>
             <td style="font-size:12px; color:#f43f5e; font-weight:500;">${tender.date}</td>
-            <td style="text-align:center;"><a href="https://tender.apeprocurement.gov.in/" target="_blank" class="btn-view-premium"><i class="fa-solid fa-eye"></i> View</a></td>
+            <td style="text-align:center;"><a href="https://apeprocurement.gov.in" target="_blank" class="btn-view-premium"><i class="fa-solid fa-eye"></i> View</a></td>
         </tr>`;
         tableBody.innerHTML += row;
     });
