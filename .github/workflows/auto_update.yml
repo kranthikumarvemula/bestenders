@@ -1,0 +1,32 @@
+name: Auto Update Tenders Data
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # ప్రతిరోజూ అర్ధరాత్రి 12 గంటలకు ఆటోమేటిక్‌గా రన్ అవుతుంది
+  workflow_dispatch:      # మీకు కావాలనుకున్నప్పుడు మాన్యువల్‌గా రన్ చేసుకోవడానికి
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Repo
+      uses: actions/checkout@v3
+
+    - name: Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+
+    - name: Install Dependencies
+      run: pip install -r requirements.txt
+
+    - name: Run Scraper
+      run: python scraper.py
+
+    - name: Commit and Push Changes
+      run: |
+        git config --global user.name "GitHub Action"
+        git config --global user.email "action@github.com"
+        git add tenders.json
+        git commit -m "Auto updated live tenders data" || exit 0
+        git push
