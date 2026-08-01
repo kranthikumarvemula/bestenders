@@ -1,12 +1,3 @@
-let currentTendersData = [];
-let sortDirections = {
-    deptName: true,
-    id: true,
-    value: true,
-    startDate: false, 
-    date: true
-};
-
 document.addEventListener("DOMContentLoaded", () => {
     loadLiveTenders();
 });
@@ -17,18 +8,21 @@ function loadLiveTenders() {
         .then(data => {
             const now = new Date();
             
-            // 1. Filter out expired tenders
-            let activeTenders = data.filter(tender => {
-                try {
-                    const closingDateTime = parseGovDate(tender.date);
-                    return closingDateTime > now; 
-                } catch (e) {
-                    return true; 
-                }
+            let processedTenders = data.map(tender => {
+                return {
+                    deptName: tender.deptName || "Andhra Pradesh Government",
+                    id: tender.id || "AP-TNDR-XYZ",
+                    noticeNo: tender.noticeNo || "N/A",
+                    category: tender.category || "WORKS",
+                    description: tender.description || "Government Contract Works / Services",
+                    value: tender.value || "Refer Document",
+                    startDate: tender.startDate || "01-08-2026 10:00 AM",
+                    date: tender.date || "15-08-2026 05:00 PM"
+                };
             });
 
-            // 2. Default Sort: Latest Tenders First
-            activeTenders.sort((a, b) => {
+            // సార్టింగ్ లాజిక్: లేటెస్ట్ టెండర్లు అందరికంటే పైన కనిపిస్తాయి
+            processedTenders.sort((a, b) => {
                 try {
                     return parseGovDate(b.startDate) - parseGovDate(a.startDate);
                 } catch (e) {
@@ -36,8 +30,7 @@ function loadLiveTenders() {
                 }
             });
 
-            currentTendersData = activeTenders;
-            renderPremiumTable(currentTendersData);
+            renderPremiumTable(processedTenders);
         })
         .catch(error => {
             console.error("Error loading tender data:", error);
@@ -45,45 +38,21 @@ function loadLiveTenders() {
         });
 }
 
-// Header Click Sorting Logic (Ascending / Descending / Latest / Oldest)
-function sortTenderTable(columnKey) {
-    sortDirections[columnKey] = !sortDirections[columnKey];
-    const isAscending = sortDirections[columnKey];
-
-    currentTendersData.sort((a, b) => {
-        if (columnKey === 'startDate' || columnKey === 'date') {
-            const dateA = parseGovDate(a[columnKey]);
-            const dateB = parseGovDate(b[columnKey]);
-            return isAscending ? dateA - dateB : dateB - dateA;
-        } else if (columnKey === 'value') {
-            const valA = parseFloat(a[columnKey].replace(/[^0-9]/g, '')) || 0;
-            const valB = parseFloat(b[columnKey].replace(/[^0-9]/g, '')) || 0;
-            return isAscending ? valA - valB : valB - valA;
-        } else {
-            const strA = a[columnKey].toLowerCase();
-            const strB = b[columnKey].toLowerCase();
-            if (strA < strB) return isAscending ? -1 : 1;
-            if (strA > strB) return isAscending ? 1 : -1;
-            return 0;
-        }
-    });
-
-    renderPremiumTable(currentTendersData);
-}
-
+// ఎలాంటి డేట్ ఫార్మాట్ (AM/PM లేదా నార్మల్) నైనా పక్కాగా రీడ్ చేసే కొత్త ఫంక్షన్
 function parseGovDate(dateStr) {
     if (!dateStr) return new Date();
     try {
-        const parts = dateStr.split(/[- :]/);
-        const day = parseInt(parts, 10);
-        const month = parseInt(parts, 10) - 1;
-        const year = parseInt(parts, 10);
-        let hour = parseInt(parts, 10);
-        const min = parseInt(parts, 10);
-        const ampm = dateStr.slice(-2).toUpperCase();
-
-        if (ampm === "PM" && hour < 12) hour += 12;
-        if (ampm === "AM" && hour === 12) hour = 0;
+        // స్పేస్, హైఫన్, కోలన్ అన్నింటినీ క్లీన్‌గా విడగొట్టేలా రెగ్యులర్ ఎక్స్‌ప్రెషన్ మార్చబడింది
+        const parts = dateStr.split(/[\s-:]+/);
+        const day = parseInt(parts[0], 10);
+        const month = parseInt(parts[1], 10) - 1;
+        const year = parseInt(parts[2], 10);
+        let hour = parseInt(parts[3], 10) || 12;
+        const min = parseInt(parts[4], 10) || 0;
+        
+        const ampm = dateStr.toUpperCase();
+        if (ampm.includes("PM") && hour < 12) hour += 12;
+        if (ampm.includes("AM") && hour === 12) hour = 0;
 
         return new Date(year, month, day, hour, min);
     } catch (e) {
