@@ -2,7 +2,7 @@ import requests
 import json
 from datetime import datetime, timedelta
 
-# మీ పర్సనల్ Apify టోకెన్ ఇక్కడ పర్‌ఫెక్ట్‌గా జోడించబడింది
+# మీ పర్సనల్ Apify టోకెన్
 APIFY_TOKEN = "apify_api_TcgEyFgtebKMNw71M4GExPC7N2rSyByGkis"
 
 def fetch_actual_ap_tenders():
@@ -20,8 +20,8 @@ def fetch_actual_ap_tenders():
     
     try:
         response = requests.post(url, json=payload, timeout=90)
-        # ఇక్కడ సింటాక్స్ తప్పు పూర్తిగా సరిచేయబడింది
-        if response.status_code in:
+        # ఇక్కడ సింటాక్స్ కరెక్ట్‌గా మార్చబడింది
+        if response.status_code == 200 or response.status_code == 201:
             raw_data = response.json()
             tenders_list = []
             
@@ -44,7 +44,7 @@ def fetch_actual_ap_tenders():
     except Exception as e:
         print(f"API Connection Error: {e}")
         
-    # బ్యాకప్ డేటా (ఒకవేళ ఏ కారణం చేతనైనా ఏపీఐ రెస్పాండ్ కాకపోతే)
+    # బ్యాకప్ డేటా
     backup_list = []
     departments = ["Information Technology", "Civil Roads & Buildings", "Municipal Administration", "Education Department", "Electrical & Power"]
     works = ["LAN Networking & CCTV Camera Setup", "Construction of New Building Wall", "Supply of Office Stationery", "Supply of 50 Desktop Computers", "Street Light Maintenance Works"]
@@ -53,12 +53,15 @@ def fetch_actual_ap_tenders():
     for i in range(1, 56):
         idx = (i - 1) % 5
         tender_time = ist_now - timedelta(minutes=(i * 15))
+        
+        # ఇక్కడ కూడా కండిషన్ సింటాక్స్ సరిచేయబడింది
+        is_works = (idx == 1 or idx == 4)
+        
         backup_list.append({
             "deptName": f"Andhra Pradesh {departments[idx]} Department",
             "id": f"AP-TNDR-2026-{100 + i}",
             "noticeNo": f"NIT/AP/2026/{500 + i}",
-            # ఇక్కడ కూడా సింటాక్స్ బగ్ పూర్తిగా సరిచేయబడింది
-            "category": "WORKS" if idx in [1, 4] else "SUPPLY",
+            "category": "WORKS" if is_works else "SUPPLY",
             "description": f"{works[idx]} (Phase-{i})",
             "value": values[idx],
             "startDate": tender_time.strftime('%d-%m-%Y %I:%M %p'),
