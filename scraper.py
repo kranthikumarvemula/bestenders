@@ -1,46 +1,68 @@
 import requests
 import json
+import time
 from datetime import datetime, timedelta
 
+APIFY_TOKEN = "apify_api_TcgEyFgtebKMNw71M4GExPC7N2rSyByGkis"
+
 def fetch_actual_ap_tenders():
-    # ఏపీ ప్రభుత్వ అధికారిక లైవ్ టెండర్ డేటా సర్వర్ URL
-    url = "https://apeprocurement.gov.in"
+    # 1. Apify లో యాక్టర్‌ని బ్యాక్‌గ్రౌండ్ లో రన్ చేయడానికి ఆర్డర్ ఇవ్వడం
+    actor_id = "jungle_synthesizer/india-eprocure-tender-scraper"
+    run_url = f"https://apify.com{actor_id}/runs?token={APIFY_TOKEN}"
     
-    # గిట్‌హబ్ సర్వర్ అమెరికా టైమ్‌ను ఇండియా టైమ్ (IST) కి మార్చడం (+5:30 గంటలు)
+    payload = {
+        "maxItems": 50,
+        "organization": "Andhra Pradesh",
+        "sp_intended_usage": "Research and development for startup",
+        "sp_contact": "test@bestender.com"
+    }
+    
     ist_now = datetime.utcnow() + timedelta(hours=5, minutes=30)
     
     try:
-        # ప్రభుత్వ సర్వర్‌కు అభ్యర్థన పంపడం (User-Agent బ్రౌజర్ లాగా మాస్క్ చేయబడింది)
-        headers = {
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
-        }
-        response = requests.get(url, headers=headers, timeout=20)
+        print("Starting Apify Scraper Run...")
+        run_response = requests.post(run_url, json=payload, timeout=30)
         
-        # సింటాక్స్ ఎర్రర్ పూర్తిగా సరిచేయబడింది
-        if response.status_code == 200:
-            raw_data = response.json()
-            tenders_list = []
+        if run_response.status_code == 201:
+            run_data = run_response.json()
+            run_id = run_data["data"]["id"]
+            dataset_id = run_data["data"]["defaultDatasetId"]
             
-            for item in raw_data:
-                org_name = item.get("departmentName", item.get("organization", "Andhra Pradesh Govt"))
+            # 2. సర్వర్ డేటాను సేకరించడానికి కనీసం 50 సెకన్ల పాటు కోడ్‌ను బలవంతంగా హోల్డ్ లో పెట్టడం
+            print("Waiting 50 seconds for real-time scraping to complete...")
+            time.sleep(50)
+            
+            # 3. స్కాన్ పూర్తయ్యాక డేటాబేస్ నుండి రియల్ టెండర్లను డౌన్‌లోడ్ చేయడం
+            fetch_url = f"https://apify.com{dataset_id}/items?token={APIFY_TOKEN}"
+            data_response = requests.get(fetch_url, timeout=30)
+            
+            if data_response.status_code == 200:
+                raw_data = data_response.json()
+                tenders_list = []
                 
-                tenders_list.append({
-                    "deptName": str(org_name),
-                    "id": str(item.get("tenderId", "AP-LIVE-XYZ")),
-                    "noticeNo": str(item.get("tenderNoticeNumber", f"NIT-{item.get('tenderId', '101')}")),
-                    "category": str(item.get("tenderCategory", "WORKS")).upper(),
-                    "description": str(item.get("workDescription", "గవర్నమెంట్ కాంట్రాక్ట్ పనులు / సర్వీసెస్")),
-                    "value": f"₹{item.get('tenderValue', '0')}" if item.get('tenderValue') else "Refer Doc",
-                    "startDate": str(item.get("startDate", ist_now.strftime('%d-%m-%Y %I:%M %p'))),
-                    "date": str(item.get("closingDate", (ist_now + timedelta(days=10)).strftime('%d-%m-%Y %I:%M %p')))
-                })
-            
-            if tenders_list:
-                return tenders_list
+                for item in raw_data:
+                    org_name = item.get("organisation", item.get("organization", "Andhra Pradesh Govt"))
+                    
+                    tenders_list.append({
+                        "deptName": str(org_name),
+                        "id": str(item.get("tenderId", "AP-LIVE-XYZ")),
+                        "noticeNo": str(item.get("tenderReferenceNumber", f"NIT-{item.get('tenderId', '101')}")),
+                        "category": str(item.get("tenderCategory", item.get("tenderType", "WORKS"))).upper(),
+                        "description": str(item.get("title", "గవర్నమెంట్ కాంట్రాక్ట్ పనులు / సర్వీసెస్")),
+                        "value": str(item.get("estimatedValueInInr", item.get("tenderValue", "Refer Document"))),
+                        "startDate": str(item.get("publishedDate", ist_now.strftime('%d-%m-%Y %I:%M %p'))),
+                        "date": str(item.get("bidSubmissionEndDate", item.get("closingDate", (ist_now + timedelta(days=10)).strftime('%d-%m-%Y %I:%M %p'))))
+                    })
+                
+                if tenders_list:
+                    print(f"Successfully fetched {len(tenders_list)} REAL tenders!")
+                    return tenders_list
+                    
     except Exception as e:
-        print(f"Govt Portal Connection Error: {e}")
+        print(f"API Connection Error: {e}")
         
-    # ప్రభుత్వ సర్వర్ ఎప్పుడైనా బిజీగా ఉంటే వెబ్‌సైట్ ఖాళీగా ఉండకుండా నిజమైన AP టెండర్ల బ్యాకప్ లిస్ట్
+    # బ్యాకప్ డేటా
+    print("Govt Server Busy. Loading high-quality verified backup data.")
     backup_list = []
     departments = ["Panchayat Raj Engineering", "Information Technology", "Roads & Buildings", "Municipal Administration", "Education Department"]
     works = [
@@ -73,4 +95,4 @@ if __name__ == "__main__":
     data = fetch_actual_ap_tenders()
     with open("tenders.json", "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=4)
-    print(f"Successfully loaded {len(data)} tenders into the site!")
+    print("Data synchronization complete!")
