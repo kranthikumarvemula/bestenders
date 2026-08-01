@@ -1,0 +1,141 @@
+/* జనరల్ రీసెట్ */
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8fafc;
+    color: #1e293b;
+}
+.container {
+    width: 88%;
+    max-width: 1200px;
+    margin: auto;
+    overflow: hidden;
+}
+
+/* హెడర్ & లోగో స్టైల్ */
+header {
+    background: #0f172a;
+    color: #fff;
+    padding: 15px 0;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+}
+.logo {
+    float: left;
+    margin: 0;
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+}
+.logo span {
+    color: #eab308; /* గోల్డ్ కలర్ */
+}
+header nav {
+    float: right;
+    margin-top: 8px;
+}
+header nav a {
+    color: #cbd5e1;
+    text-decoration: none;
+    margin-left: 25px;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+header nav a:hover, header nav a.active {
+    color: #eab308;
+}
+
+/* హీరో సెక్షన్ */
+.hero-section {
+    background: linear-gradient(135deg, #1e3a8a, #0f172a);
+    color: white;
+    padding: 60px 0;
+    text-align: center;
+}
+.hero-section h2 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+.hero-section p {
+    color: #93c5fd;
+    margin-bottom: 30px;
+    font-size: 18px;
+}
+.search-box input {
+    width: 45%;
+    padding: 14px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px 0 0 4px;
+    outline: none;
+}
+.search-box button {
+    padding: 14px 30px;
+    font-size: 16px;
+    background: #eab308;
+    color: #0f172a;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 0 4px 4px 0;
+    transition: background 0.3s;
+}
+.search-box button:hover {
+    background: #ca8a04;
+}
+
+/* టేబుల్ అండ్ లిస్టింగ్స్ */
+.tender-listings {
+    padding: 40px 0;
+}
+.tender-listings h3 {
+    font-size: 22px;
+    border-left: 5px solid #1e3a8a;
+    padding-left: 10px;
+    margin-bottom: 20px;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+}
+th, td {
+    padding: 15px;
+    text-align: left;
+}
+th {
+    background-color: #1e3a8a;
+    color: white;
+    font-weight: 600;
+}
+td {
+    border-bottom: 1px solid #e2e8f0;
+}
+tr:hover {
+    background-color: #f1f5f9;
+}
+.btn-download {
+    background: #10b981;
+    color: white;
+    padding: 8px 16px;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: background 0.3s;
+}
+.btn-download:hover {
+    background: #059669;
+}
+
+/* ఫుటర్ */
+footer {
+    background: #0f172a;
+    color: #94a3b8;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 50px;
+}
