@@ -17,7 +17,7 @@ function loadLiveTenders() {
         .then(data => {
             const now = new Date();
             
-            // 1. క్లోజింగ్ టైమ్ దాటని యాక్టివ్ టెండర్లను మాత్రమే ఉంచడం
+            // 1. Filter out expired tenders
             let activeTenders = data.filter(tender => {
                 try {
                     const closingDateTime = parseGovDate(tender.date);
@@ -27,7 +27,7 @@ function loadLiveTenders() {
                 }
             });
 
-            // 2. డిఫాల్ట్‌గా సరికొత్త టెండర్లు పైన కనిపించేలా సార్ట్ చేయడం (Latest First)
+            // 2. Default Sort: Latest Tenders First
             activeTenders.sort((a, b) => {
                 try {
                     return parseGovDate(b.startDate) - parseGovDate(a.startDate);
@@ -40,12 +40,12 @@ function loadLiveTenders() {
             renderPremiumTable(currentTendersData);
         })
         .catch(error => {
-            console.error("డేటా లోడ్ చేయడంలో ఇబ్బంది వచ్చింది:", error);
+            console.error("Error loading tender data:", error);
             document.getElementById("totalCount").innerText = "Error Loading Data";
         });
 }
 
-// హెడర్ క్లిక్ ఫిల్టర్ లాజిక్ (Ascending / Descending / Latest / Oldest)
+// Header Click Sorting Logic (Ascending / Descending / Latest / Oldest)
 function sortTenderTable(columnKey) {
     sortDirections[columnKey] = !sortDirections[columnKey];
     const isAscending = sortDirections[columnKey];
@@ -71,16 +71,15 @@ function sortTenderTable(columnKey) {
     renderPremiumTable(currentTendersData);
 }
 
-// AM/PM తో కూడిన డేట్ స్ట్రింగ్‌ను రీడ్ చేసే పక్కా ఫంక్షన్
 function parseGovDate(dateStr) {
     if (!dateStr) return new Date();
     try {
         const parts = dateStr.split(/[- :]/);
-        const day = parseInt(parts[0], 10);
-        const month = parseInt(parts[1], 10) - 1;
-        const year = parseInt(parts[2], 10);
-        let hour = parseInt(parts[3], 10);
-        const min = parseInt(parts[4], 10);
+        const day = parseInt(parts, 10);
+        const month = parseInt(parts, 10) - 1;
+        const year = parseInt(parts, 10);
+        let hour = parseInt(parts, 10);
+        const min = parseInt(parts, 10);
         const ampm = dateStr.slice(-2).toUpperCase();
 
         if (ampm === "PM" && hour < 12) hour += 12;
@@ -99,7 +98,7 @@ function renderPremiumTable(tenders) {
     document.getElementById("totalCount").innerText = `${tenders.length} Active Tenders Available`;
 
     if (tenders.length === 0) {
-        tableBody.innerHTML = `<tr><td colspan="9" style="text-align:center; color:#94a3b8; padding:30px; font-weight:500;">లైవ్ టెండర్లు ఏవీ అందుబాటులో లేవు. ప్రభుత్వ సైట్ అప్‌డేట్ కోసం వేచి చూస్తోంది...</td></tr>`;
+        tableBody.innerHTML = `<tr><td colspan="9" style="text-align:center; color:#94a3b8; padding:30px; font-weight:500;">No live tenders available at the moment. Waiting for government server update...</td></tr>`;
         return;
     }
 
