@@ -1,50 +1,64 @@
-// వెబ్‌సైట్ ఓపెన్ అవ్వగానే డేటాను లోడ్ చేయడం
+let allTenders = [];
+let showAll = false;
+
 document.addEventListener("DOMContentLoaded", () => {
     loadLiveTenders();
 });
 
 function loadLiveTenders() {
-    // బ్రౌజర్ క్యాచీ సమస్య లేకుండా ప్రతిసారీ సరికొత్త డేటాను తెచ్చుకోవడం
     fetch('tenders.json?v=' + new Date().getTime())
         .then(response => response.json())
         .then(data => {
-            const tableBody = document.querySelector("#tenderTable tbody");
-            tableBody.innerHTML = ""; // పాత డేటాను క్లియర్ చేయడం
-
-            data.forEach(tender => {
-                const row = `<tr>
-                    <td>${tender.id}</td>
-                    <td>${tender.category}</td>
-                    <td>${tender.description}</td>
-                    <td>${tender.value}</td>
-                    <td>${tender.date}</td>
-                    <td><a href="https://tender.apeprocurement.gov.in/" target="_blank" class="btn-download">అప్లై</a></td>
-                </tr>`;
-                
-                // ఇక్కడ += కరెక్ట్‌గా సెట్ చేయబడింది
-                tableBody.innerHTML += row; 
-            });
+            allTenders = data;
+            renderTable();
         })
         .catch(error => {
             console.error("డేటా లోడ్ చేయడంలో ఇబ్బంది వచ్చింది:", error);
         });
 }
 
-// సెర్చ్ ఫంక్షన్
+function renderTable() {
+    const tableBody = document.querySelector("#tenderTable tbody");
+    tableBody.innerHTML = ""; 
+
+    // ఒకవేళ మోర్ నొక్కకపోతే మొదటి 5 చూపిస్తుంది, నొక్కితే అన్నీ (50+) చూపిస్తుంది
+    const tendersToDisplay = showAll ? allTenders : allTenders.slice(0, 5);
+
+    tendersToDisplay.forEach(tender => {
+        const row = `<tr>
+            <td><strong>${tender.deptName || 'AP eProcurement'}</strong></td>
+            <td>${tender.id}</td>
+            <td>${tender.noticeNo || 'NIT-' + tender.id}</td>
+            <td>${tender.description}</td>
+            <td>${tender.value}</td>
+            <td>${tender.startDate || '01-08-2026 10:00 AM'}</td>
+            <td>${tender.date || '25-08-2026 05:00 PM'}</td>
+            <td><a href="https://tender.apeprocurement.gov.in/" target="_blank" class="btn-view"><i class="fa-solid fa-eye"></i> View</a></td>
+        </tr>`;
+        tableBody.innerHTML += row;
+    });
+
+    // బటన్ టెక్స్ట్ మార్చడం
+    const btn = document.getElementById("loadMoreBtn");
+    if (showAll) {
+        btn.innerHTML = `Show Less <i class="fa-solid fa-chevron-up"></i>`;
+    } else {
+        btn.innerHTML = `More Tenders (${allTenders.length - 5}+) <i class="fa-solid fa-chevron-down"></i>`;
+    }
+}
+
+function toggleTenders() {
+    showAll = !showAll;
+    renderTable();
+}
+
 function searchTenders() {
     let input = document.getElementById("searchInput").value.toLowerCase();
     let table = document.getElementById("tenderTable");
     let tr = table.getElementsByTagName("tr");
 
     for (let i = 1; i < tr.length; i++) {
-        let td = tr[i].getElementsByTagName("td");
-        if (td.length > 0) {
-            let textValue = td[0].textContent + " " + td[1].textContent + " " + td[2].textContent;
-            if (textValue.toLowerCase().indexOf(input) > -1) {
-                tr[i].style.display = "";
-            } else {
-                tr[i].style.display = "none";
-            }
-        }       
+        let text = tr[i].innerText.toLowerCase();
+        tr[i].style.display = text.includes(input) ? "" : "none";
     }
 }
