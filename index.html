@@ -3,44 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BesTender - లైవ్ టెండర్ల సమాచారం</title>
+    <title>BesTender - Premium Live Tenders Portal</title>
     <link rel="stylesheet" href="style.css">
-    <!-- ఐకాన్స్ కోసం FontAwesome లింక్ -->
+    <!-- గూగుల్ ఫాంట్స్ మరియు ఐకాన్స్ -->
+    <link href="https://googleapis.com" rel="stylesheet">
     <link rel="stylesheet" href="https://cloudflare.com">
 </head>
 <body>
 
-    <!-- హెడర్ సెక్షన్ -->
+    <!-- ప్రీమియం నేవిగేషన్ బార్ -->
     <header>
-        <div class="container">
-            <!-- టూ-కలర్ బ్రాండింగ్: BesTender -->
-            <h1 class="logo">Bes<span>Tender</span></h1>
-            <nav>
-                <a href="#" class="active">హోమ్</a>
-                <a href="#">లైవ్ టెండర్లు</a>
-                <a href="#">ప్రీమియం ప్లాన్స్</a>
-                <a href="#">రిజిస్ట్రేషన్</a>
+        <div class="nav-container">
+            <h1 class="brand-logo">Bes<span>Tender</span></h1>
+            <nav class="nav-links">
+                <a href="#" class="nav-item active">హోమ్</a>
+                <a href="#" class="nav-item">లైవ్ టెండర్లు</a>
+                <a href="#" class="nav-item">ప్రీమియం ప్లాన్స్</a>
+                <a href="#" class="nav-item signup-btn">రిజిస్ట్రేషన్</a>
             </nav>
         </div>
     </header>
 
-    <!-- మెయిన్ బ్యానర్ -->
-    <section class="hero-section">
-        <div class="container">
-            <h2>ప్రభుత్వ & ప్రైవేట్ టెండర్ల సమాచారం ఒక్కచోటే!</h2>
-            <p>ఈరోజు అప్‌డేట్ అయిన లైవ్ టెండర్లను ఇక్కడే చూసుకోండి.</p>
-            <div class="search-box">
-                <input type="text" id="searchInput" placeholder="డిపార్ట్‌మెంట్ లేదా పని పేరుతో వెతకండి...">
-                <button onclick="searchTenders()">Search</button>
+    <!-- మోడ్రన్ సెర్చ్ & హీరో సెక్షన్ -->
+    <section class="premium-hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <span class="badge">Live & Automated Data Feed</span>
+            <h2>గవర్నమెంట్ టెండర్ల సమాచారం ఒక్కచోటే!</h2>
+            <p>AP eProcurement లైవ్ టెండర్లతో మీ స్టార్టప్ బిజినెస్‌ను నెక్స్ట్ లెవెల్‌కి తీసుకెళ్ళండి.</p>
+            <div class="modern-search-box">
+                <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                <input type="text" id="searchInput" onkeyup="searchTenders()" placeholder="డిపార్ట్‌మెంట్, టెండర్ ఐడీ లేదా పని పేరుతో ఇప్పుడే వెతకండి...">
             </div>
         </div>
     </section>
 
-    <!-- టెండర్ల జాబితా -->
-    <section class="tender-listings">
+    <!-- టెండర్ల మెయిన్ సెక్షన్ -->
+    <section class="main-content-area">
         <div class="container">
-            <h3 class="section-title">Today's Live Tenders</h3>
-            <div class="table-responsive">
+            <div class="section-header">
+                <div class="title-left">
+                    <div class="live-dot"></div>
+                    <h3>Today's Active Tenders</h3>
+                </div>
+                <span class="tender-count" id="totalCount">Loading Tenders...</span>
+            </div>
+            
+            <!-- మోర్ ఆప్షన్ లేని డైరెక్ట్ టేబుల్ -->
+            <div class="premium-table-wrapper">
                 <table id="tenderTable">
                     <thead>
                         <tr>
@@ -48,27 +58,24 @@
                             <th>Tender ID</th>
                             <th>Tender Notice Number</th>
                             <th>Name of Work</th>
-                            <th>Estimated Contract Value</th>
+                            <th>Estimated Value</th>
                             <th>Start Date & Time</th>
                             <th>Close Date & Time</th>
-                            <th>Action</th>
+                            <th style="text-align: center;">Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- డేటా జావాస్క్రిప్ట్ ద్వారా ఆటోమేటిక్‌గా ఇక్కడ లోడ్ అవుతుంది -->
+                        <!-- డేటా మొత్తం ఇక్కడే డైరెక్ట్‌గా లోడ్ అవుతుంది -->
                     </tbody>
                 </table>
-            </div>
-            
-            <!-- మోర్ ఆప్షన్ బటన్ -->
-            <div class="more-btn-container">
-                <button id="loadMoreBtn" onclick="toggleTenders()">More Tenders <i class="fa-solid fa-chevron-down"></i></button>
             </div>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2026 <strong>BesTender</strong>. All Rights Reserved.</p>
+        <div class="container">
+            <p>&copy; 2026 <span style="color:#fff; font-weight:700;">Bes</span><span style="color:#3b82f6; font-weight:700;">Tender</span>. Designed for Modern Startups. All Rights Reserved.</p>
+        </div>
     </footer>
 
     <script src="script.js"></script>
